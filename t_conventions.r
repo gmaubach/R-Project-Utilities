@@ -55,5 +55,14 @@
 # data_created     : Atomic character vector to store a date in format
 #                    "YYYY-MM-DD" as a part of a filename for data
 
+# File Handling
+# Files that store interim results are named with immutable file names, e. g.
+# "SAP-ERP_Customers_2015_raw.RData.
+# Files that reflect an endpoint in an analysis process are named with a prefix
+# containing the current data, e. g. 2016-06-09_SAP-ERP_Customers_2015_raw.xlsx.
+# This file will not be read again within the analysis process and can therefore
+# reflect the date it was created whereas the RData file will be read in further
+# process steps.
+
 # EOF
 
