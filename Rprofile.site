@@ -64,8 +64,8 @@ options(width = 130)
 
 # Execute at R startup  
 .First <- function() {
-  library(Hmisc)
-  library(R2HTML)
+  # library(Hmisc)
+  # library(R2HTML)
   cat("\nWelcome at", date(), "\n")
 }
 
@@ -76,3 +76,4 @@ options(width = 130)
 
 # EOF
 
+qquit
