@@ -54,7 +54,7 @@ t_count_non_na <- function(dataset,
   }  else {
     variable_list <- variables
   }  
-  dataset[["non_na_count"]] <- apply(dataset[,variable_list],
+  dataset[["count_non_na"]] <- apply(dataset[,variable_list],
                                      1, 
                                      function(x) sum(!is.na(x)))
   
