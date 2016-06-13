@@ -1,0 +1,78 @@
+#! c:\R-Project\R-3.2.5\bin\Rscript.exe
+# Author   : Georg Maubach
+# Date     : 2016-06-13
+# Update   : 2016-06-13
+# Base     : Rprofile.site (the original version which come with the installation)
+# Reference: http://www.statmethods.net/interface/customizing.html
+
+t_version = "2016-06-13"
+t_module_name = "Rprofile.site created by Georg Maubach"
+
+cat(
+  paste0("\n",
+         t_module_name, " (Version: ", t_version, ")", "\n", "\n",
+         "This software comes with ABSOLUTELY NO WARRANTY.",
+         "\n", "\n"))
+
+# -- [ C ] --
+options(continue="+ ")  # default "+ "
+
+# -- [ E ] --
+# options(editor="notepad")  # not documented
+
+# -- [ G ] --
+options(graphics.record = TRUE)  # not documented
+
+# -- [ H ] --
+# options(help_type="text")  # not documented
+options(help_type="html")    # not documented
+# to prefer Compiled HTML    # not documented
+options(chmhelp = TRUE)      # not documented
+# to prefer HTML help        # not documented
+# options(htmlhelp=TRUE)     # not documented
+
+# -- [ M ] --
+# set a CRAN mirror  # not documented
+# local({r <- getOption("repos")
+#       r["CRAN"] <- "http://my.local.cran"
+#       options(repos=r)})
+options(max.print = 500)  # default 99999
+
+# -- [ L ] --
+# set a site library  # not documented
+# .Library.site <- file.path(chartr("\\", "/", R.home()), "site-library")
+
+# -- [ P ] --
+# options(pager="internal")
+options(papersize="a4")  # not documented
+options(prompt="> ") # should end in a blank " "
+
+# -- [ P ] --
+options(stringsAsFactors = TRUE)
+
+# -- [ T ] --
+options(tab.width = 2)
+options(timeout = 60)
+
+# -- [ V ] --
+options(verbose = FALSE)
+
+# -- [ W ] --
+options(warnPartialMatchArgs = TRUE)
+options(warnPartialMatchDollar = TRUE)
+options(width = 130)
+
+# Execute at R startup  
+.First <- function() {
+  library(Hmisc)
+  library(R2HTML)
+  cat("\nWelcome at", date(), "\n")
+}
+
+# Execute at R shutdown
+.Last <- function() {
+  cat("\nGoodbye at ", date(), "\n")
+}
+
+# EOF
+
