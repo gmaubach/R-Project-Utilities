@@ -200,7 +200,7 @@ rpart.plot
 RPostgreSQL
 RSQLite
 rstudioapi
-Rweka
+RWeka
 sandwich
 scales
 scatterplot3d
