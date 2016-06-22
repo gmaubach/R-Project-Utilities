@@ -47,6 +47,7 @@ dplyr
 dtw
 e1071
 ellipse
+excel.link
 evaluate
 fastmatch
 fBasics
@@ -208,6 +209,7 @@ scatterplot3d
 seriation
 slam
 SnowballC
+sos
 sp
 spacetime
 spam
