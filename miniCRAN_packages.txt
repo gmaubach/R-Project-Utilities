@@ -242,6 +242,8 @@ withr
 wskm
 XML
 xml2
+xlsx
+xlsxjars
 xtable
 xts
 yaml
