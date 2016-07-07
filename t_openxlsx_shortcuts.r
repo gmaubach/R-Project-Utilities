@@ -2,7 +2,7 @@
 # Module        : t_openxlsx_shortcuts.R
 # Author        : Georg Maubach
 # Date          : 2016-05-19
-# Update        : 2016-06-07
+# Update        : 2016-07-07
 # Description   : Shortcuts for working with openxslx package
 # Source System : R 3.2.2 (64 Bit)
 # Target System : R 3.2.2 (64 Bit)
@@ -74,9 +74,9 @@ t_add_sheet <- function (workbook,
   # Error handling:
   #   None.
 
-  addWorksheet(workbook,
+  openxlsx::addWorksheet(workbook,
     sheetName = sheetname)
-  writeDataTable(workbook, 
+  openxlsx::writeDataTable(workbook, 
     sheet = sheetname,     
     x = dataset)
   ### writeDataTable writes data to a sheet an adds
@@ -85,13 +85,13 @@ t_add_sheet <- function (workbook,
     NULL # do nothing
   }
   else {
-    freezePane(workbook,
+    openxlsx::freezePane(workbook,
       sheet = sheetname,
       firstActiveRow = freeze_row,
       firstActiveCol = freeze_col)
   }
   
-  setColWidths(workbook,
+  openxlsx::setColWidths(workbook,
     sheet = sheetname,
     cols = 1:ncol(dataset), 
     widths = "auto")
@@ -119,7 +119,7 @@ t_write_xlsx <- function(workbook, path, filename, overwrite = FALSE) {
   # Error handling:
   #   None.
   
-  saveWorkbook(workbook, 
+  openxlsx::saveWorkbook(workbook, 
     file = file.path(path, filename),
     overwrite = overwrite)
 }
