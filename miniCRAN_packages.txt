@@ -8,6 +8,7 @@ assertthat
 bdsmatrix
 BH
 biclust
+bigml
 bit
 bit64
 bitops
