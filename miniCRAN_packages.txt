@@ -92,6 +92,7 @@ htmltools
 httpuv
 httr
 igraph
+ineq
 installr
 intervals
 irlba
@@ -208,6 +209,7 @@ sandwich
 scales
 scatterplot3d
 seriation
+sfsmisc
 slam
 SnowballC
 sos
