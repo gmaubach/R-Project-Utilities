@@ -24,7 +24,7 @@ cat(
          This software comes with ABSOLUTELY NO WARRANTY.", "\n", "\n"))
 
 # If do_test is not defined globally define it here locally by un-commenting it
-# do_test <- TRUE
+t_do_test <- FALSE
 
 # [ Function Defintion ]--------------------------------------------------------
 t_create_variable <- function(dataset,
@@ -67,7 +67,7 @@ t_create_variable <- function(dataset,
 }
 
 # [ Test Defintion ]------------------------------------------------------------
-test <- function(do_test = FALSE) {
+t_test <- function(do_test = FALSE) {
   
   if (do_test == TRUE) {
     cat("\n", "\n", "Test function t_count_na()", "\n", "\n")
