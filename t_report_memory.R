@@ -14,12 +14,14 @@
 
 t_module_name = "t_report_memory.R"
 t_version = "2016-06-15"
+t_status = "released"
 
 cat(
   paste0("\n",
-         t_module_name, " (Version: ", t_version, ")", "\n", "\n",
-         "This software comes with ABSOLUTELY NO WARRANTY.",
-         "\n", "\n"))
+         t_module_name, " (Version: ", t_version, ", Status: ", t_status, ")", "\n", "\n",
+         "Copyright (C) Georg Maubach 2016
+
+This software comes with ABSOLUTELY NO WARRANTY.", "\n", "\n"))
 
 # If do_test is not defined globally define it here locally by un-commenting it
 # Switch t_do_test to TRUE to run test
@@ -46,6 +48,6 @@ t_test <- function(do_test = FALSE) {
 t_test(do_test = t_do_test)
 
 # [ Clean up ]------------------------------------------------------------------
-# Nothing to do.
+rm("t_module_name", "t_version", "t_status", "t_do_test", "t_test")
 
 # EOF
