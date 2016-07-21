@@ -2,7 +2,7 @@
 # Module        : t_merge_variables.R
 # Author        : Georg Maubach
 # Date          : 2016-06-06
-# Update        : 2016-06-06
+# Update        : 2016-06-09
 # Description   : Merge two variables
 # Source System : R 3.2.5 (64 Bit)
 # Target System : R 3.2.5 (64 Bit)
@@ -13,7 +13,7 @@
 #--------1---------2---------3---------4---------5---------6---------7---------8
 
 t_module_name = "t_merge_variables.R"
-t_version = "2016-06-06"
+t_version = "2016-06-09"
 
 cat(
   paste0("\n",
@@ -23,7 +23,7 @@ cat(
 
 # If do_test is not defined globally define it here locally by un-commenting it
 # Switch t_do_test to TRUE to run test
-t_do_test <- TRUE
+t_do_test <- FALSE
 
 # [ Function Defintion ]--------------------------------------------------------
 t_merge_variables <-
@@ -49,8 +49,8 @@ t_merge_variables <-
     #   if var1 != var2: merged_var <- -1 (-1 = indicating mismatch)
     #   if var1 is filled & var2 is missing: merged_var <- var1
     #   if var1 is missing & var2 is filled: merged_var <- var2
-    #   if var1 is missing & var2 is filled: merged_var <- -2 
-    #                                        (-2 = indicating NA)
+    #   if var1 is missing & var2 is missing: merged_var <- -2 
+    #                                         (-2 = indicating NA)
     #
     # Returns:
     #   Original dataset and variable given in "merged_var" will be added.
@@ -68,7 +68,7 @@ t_merge_variables <-
       # Check 1: var1 missing, var2 missing
       ifelse(is.na(dataset[, var1]) & is.na(dataset[, var2]), 
         # then
-        dataset[[merged_var]] <- -1,
+        dataset[[merged_var]] <- -2,
         # Check 2: var1 filled, var2 missing
         ifelse(!is.na(dataset[, var1]) & is.na(dataset[, var2]),
           # then
@@ -82,7 +82,7 @@ t_merge_variables <-
               # then: use var1
               dataset[[merged_var]] <- dataset[, var1],
               #Leftover: var1 != var2
-              dataset[merged_var] <- -2))))
+              dataset[merged_var] <- -1))))
       
     return(dataset)
 }
@@ -90,8 +90,6 @@ t_merge_variables <-
 # [ Test Defintion ]------------------------------------------------------------
 t_test <- function(do_test = FALSE) {
   if (do_test == TRUE) {
-    cat("\n", "\n", "Test function t_count_na()", "\n", "\n")
-    
     # Example dataset
     customer.x <- c("Miller", "Smith", NA,    "Bird", NA)
     customer.y <- c("Miller",  NA,     "Doe", "Fish", NA)
