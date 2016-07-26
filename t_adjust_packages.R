@@ -29,7 +29,9 @@ t_do_test <- FALSE
 # [ Function Defintion ]--------------------------------------------------------
 t_adjust_packages <- function(package_list,
                               what_to_do = "upgrade",
-                              type = "source") {
+                              type = "source",
+                              path_backup = "C:/Temp",
+                              mirror = "http://cran.stat.auckland.ac.nz/") {
   #-----------------------------------------------------------------------------
   # Adjust installed packages according to a given list
   #
@@ -47,8 +49,14 @@ t_adjust_packages <- function(package_list,
   #      "adjust"   : install packages that are named in the list of package
   #                   names but not installed currently AND un-install packages
   #                   that are NOT named in the list of packages
-  #   from_source (string):
+  #   type (string):
   #     Type of installation according to install.packages().
+  #   path_backup (path for backup file):
+  #     Path for the location of the backup file to store the list of already
+  #     installed packages.
+  #   mirror (URL):
+  #     A link to the mirror server with R installation software from the
+  #     list: https://cran.r-project.org/mirrors.html.
   #
   # Operation:
   #   The function reads in a list of packages and creates a list of already
@@ -80,9 +88,10 @@ t_adjust_packages <- function(package_list,
                     "is written to the current working dirctory.\n",
                     "The file name is 'installed_packages_backup.csv")
   warning(message)
-  write.csv(x = packages,
-            file = "installed_packages_backup.csv",
-            col.names = FALSE,
+  write.table(packages,
+            file = file.path(path_backup,
+                             "installed_packages_backup.csv"),
+            col.names = "Packages",
             row.names = FALSE)
   ds_avail <- data.frame(packages, stringsAsFactors = FALSE)
   ds_avail$available <- TRUE
@@ -149,7 +158,8 @@ t_adjust_packages <- function(package_list,
   if (what_to_do == "upgrade") {
     install.packages(pkgs = to_install,
                      dependencies = TRUE,
-                     type = type)
+                     type = type,
+                     repos = mirror)
   } 
   # Delete packages
   else if (what_to_do == "downgrade") {
@@ -159,7 +169,8 @@ t_adjust_packages <- function(package_list,
   else if (what_to_do == "adjust") {
     install.packages(pkgs = to_install,
                      dependencies = TRUE,
-                     type = type)
+                     type = type,
+                     repos = mirror)
     remove.packages(pkgs = to_delete)
   }  # end if
 }  # end function
