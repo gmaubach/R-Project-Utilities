@@ -2,7 +2,7 @@
 # Module        : t_adjust_packages.R
 # Author        : Georg Maubach
 # Date          : 2016-07-21
-# Update        : 2016-07-21
+# Update        : 2016-07-26
 # Description   : Adjust installed packages according to a given list
 # Source System : R 3.3.0 (64 Bit)
 # Target System : R 3.3.0 (64 Bit)
@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #--------1---------2---------3---------4---------5---------6---------7---------8
 
-t_version = "2016-07-21"
+t_version = "2016-07-26"
 t_module_name = "t_adjust_packages.R"
 t_status = "released"
 
@@ -82,6 +82,7 @@ t_adjust_packages <- function(package_list,
   warning(message)
   write.csv(x = packages,
             file = "installed_packages_backup.csv",
+            col.names = FALSE,
             row.names = FALSE)
   ds_avail <- data.frame(packages, stringsAsFactors = FALSE)
   ds_avail$available <- TRUE
@@ -91,7 +92,7 @@ t_adjust_packages <- function(package_list,
   # as needed by install.packages without version number or file extensions.
   # The file has no header.
   packages <-
-    read.csv(file = "H:/2016/Programming/R-Project/miniCRAN_packages.txt",
+    read.csv(file = package_list,
              header = FALSE)
   names(packages)[1] <- "packages"
   ds_needed <- packages
