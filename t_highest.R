@@ -44,8 +44,14 @@ t_highest <- function(dataset, variable, number = 5, show = c()) {
   #   NA are sorted last and never shown as lowest values, thus always omitted
   #   implicitly.
   #
+  #   Attention
+  #   If two or more elements have the same value, e. g. 2, 2, 2, then the
+  #   position within the sequence decides which values is taken. In this case
+  #   the first values found in the sequence are selected.
+  #
   # Returns:
-  #   Nothing.
+  #   The highest values according to number in descending order are returned
+  #   invisibly.
   #
   # Error handling:
   #   None.
@@ -54,10 +60,12 @@ t_highest <- function(dataset, variable, number = 5, show = c()) {
   #          2011, p. 314f
   #-----------------------------------------------------------------------------
   if(length(show) == 0) { show = variable }
-  print(head(dataset[order(dataset[variable],
+  v_order <- order(dataset[variable],
                            decreasing = TRUE,
-                           na.last = TRUE) , show],
-             n = number))
+                           na.last = TRUE)
+  print(head(dataset[v_order, show], n = number))
+  
+  return(invisible(v_order[1:number]))
 }
 
 
@@ -77,7 +85,7 @@ t_test <- function(do_test = FALSE) {
     cfam <- c(NA,2,NA, 2, 1, 2, 2,NA, NA)
     ds_example <- data.frame(gene, hsap, mmul, mmus, rnor, cfam)
     
-    t_highest(dataset = ds_example, variable = "hsap", number = 5, show = "hsap")
+    t_highest(dataset = ds_example, variable = "hsap", number = 5, show = c("hsap"))
     
     t_highest(dataset = ds_example, variable = "mmul", number = 5, show = "mmul")
     

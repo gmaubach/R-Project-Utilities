@@ -44,8 +44,14 @@ t_lowest <- function(dataset, variable, number = 5, show = c()) {
   #   NA are sorted last and never shown as lowest values, thus always omitted
   #   implicitly.
   #
+  #   Attention
+  #   If two or more elements have the same value, e. g. 2, 2, 2, then the
+  #   position within the sequence decides which values is taken. In this case
+  #   the first values found in the sequence are selected.
+  #
   # Returns:
-  #   Nothing.
+  #   The lowest values according to number in ascending order are returned
+  #   invisibly.
   #
   # Error handling:
   #   None.
@@ -54,12 +60,13 @@ t_lowest <- function(dataset, variable, number = 5, show = c()) {
   #          2011, p. 314f
   #-----------------------------------------------------------------------------
   if(length(show) == 0) { show = variable }
-  print(head(dataset[order(dataset[variable], 
-                           decreasing = FALSE,
-                           na.last = TRUE) , show],
-             n = number))
+  v_order <- order(dataset[variable],
+                   decreasing = FALSE,
+                   na.last = TRUE)
+  print(head(dataset[v_order, show], n = number))
+  
+  return(invisible(v_order[1:number]))
 }
-
 
 # [ Test Defintion ]------------------------------------------------------------
 t_test <- function(do_test = FALSE) {
