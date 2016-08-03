@@ -24,7 +24,7 @@ cat(
          This software comes with ABSOLUTELY NO WARRANTY.", "\n", "\n"))
 
 # If do_test is not defined globally define it here locally by un-commenting it
-t_do_test <- TRUE
+t_do_test <- FALSE
 
 # [ Function Defintion ]--------------------------------------------------------
 t_lowest <- function(dataset, variable, number = 5, show = c()) {
