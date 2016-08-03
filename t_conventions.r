@@ -2,10 +2,10 @@
 # Module        : Conventions
 # Author        : Georg Maubach
 # Date          : 2016-06-07
-# Update        : 2016-06-07
+# Update        : 2016-08-03
 # Description   : Conventions in scripts
-# Source System : R 3.2.5 (64 Bit)
-# Target System : R 3.2.5 (64 Bit)
+# Source System : R 3.3.0 (64 Bit)
+# Target System : R 3.3.0 (64 Bit)
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -21,30 +21,47 @@
 # %EErr%   : Expected error or warning
 
 # Environment
-# path_project   : Project directory
-# path_script    : Path to project programs
+# c_path_project   : Project directory
+# c_path_script    : Path to project programs
 #                  (is normally a sub directory to path_project)
-# path_input     : Path to input files for the project (not altered by R scripts)
+# c_path_input     : Path to input files for the project (not altered by R scripts)
 #                  (is normally a sub directory to path_project)
-# path_output    : Path to output files produced by R scripts
+# c_path_output    : Path to output files produced by R scripts
 #                  (is normally a sub directory to path_project)
 
 # Files
 # inc_file       : filename for files to include and used with source()
 # sub_call_file  : filename for sub routines to be used with source()
-# data_directory : directory to store a dataset in, can be set to path_output
-# data_filename  : filename for an RData file
+# v_file_path    : directory to store a dataset in, can be set to path_output
+# v_file_name    : filename for an RData file
+# v_file_location: file.path(v_file_path, v_file_location)
 
-# xls_workbook   : xls workbook object
-# xls_sheetname  : sheetname
-# xls_ds_to_save : dataset to be save as an Excel file
-# xls_filename   : filename
-# xls_directory  : directory to store the file in
+# xls_workbook     : xls workbook object
+# xls_sheetname    : sheetname
+# xls_ds_to_save   : dataset to be save as an Excel file
+# xls_file_name    : filename
+# xls_file_path    : directory to store the file in
+# xls_file_location: file.path(xls_file_path, xls_file_name)
+
+# Abbreviations
+# Rational
+#  - distinguish the objects from objects used by R functions
+#  - keep the environment tab of R Studio neat and clean
+# c = constant
+# d = datasets
+# m = meta data
+# v = variables
 
 # Objects
 # sub_name         : Name of a subroutine
 # sub_version      : Version of a subroutine in "YYYY-MM-DD" format
-# ds_*             : Prefix for dataset objects, e.g. data.frame, data.table
+# d_*              : Prefix for dataset objects containing payloads,
+#                    e.g. data.frame, data.table
+# c_*              : Prefix for constant values,
+#                    e.g. separator for values and value labels
+# m_*              : Prefix for dataset objects containing (M)eta data,
+#                    e. g. branch codes
+# v_*              : Prefix for variables
 # key_variables    : character vector with variables to be used to identify
 #                    duplicates
 # duplicates       : logical vector to indicate if a case is duplicate or not
