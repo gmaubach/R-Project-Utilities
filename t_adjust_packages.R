@@ -2,7 +2,7 @@
 # Module        : t_adjust_packages.R
 # Author        : Georg Maubach
 # Date          : 2016-07-21
-# Update        : 2016-07-26
+# Update        : 2016-07-21
 # Description   : Adjust installed packages according to a given list
 # Source System : R 3.3.0 (64 Bit)
 # Target System : R 3.3.0 (64 Bit)
@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #--------1---------2---------3---------4---------5---------6---------7---------8
 
-t_version = "2016-07-26"
+t_version = "2016-07-21"
 t_module_name = "t_adjust_packages.R"
 t_status = "released"
 
@@ -29,9 +29,7 @@ t_do_test <- FALSE
 # [ Function Defintion ]--------------------------------------------------------
 t_adjust_packages <- function(package_list,
                               what_to_do = "upgrade",
-                              type = "source",
-                              path_backup = "C:/Temp",
-                              mirror = "http://cran.stat.auckland.ac.nz/") {
+                              type = "source") {
   #-----------------------------------------------------------------------------
   # Adjust installed packages according to a given list
   #
@@ -49,14 +47,8 @@ t_adjust_packages <- function(package_list,
   #      "adjust"   : install packages that are named in the list of package
   #                   names but not installed currently AND un-install packages
   #                   that are NOT named in the list of packages
-  #   type (string):
+  #   from_source (string):
   #     Type of installation according to install.packages().
-  #   path_backup (path for backup file):
-  #     Path for the location of the backup file to store the list of already
-  #     installed packages.
-  #   mirror (URL):
-  #     A link to the mirror server with R installation software from the
-  #     list: https://cran.r-project.org/mirrors.html.
   #
   # Operation:
   #   The function reads in a list of packages and creates a list of already
@@ -88,10 +80,8 @@ t_adjust_packages <- function(package_list,
                     "is written to the current working dirctory.\n",
                     "The file name is 'installed_packages_backup.csv")
   warning(message)
-  write.table(packages,
-            file = file.path(path_backup,
-                             "installed_packages_backup.csv"),
-            col.names = "Packages",
+  write.csv(x = packages,
+            file = "installed_packages_backup.csv",
             row.names = FALSE)
   ds_avail <- data.frame(packages, stringsAsFactors = FALSE)
   ds_avail$available <- TRUE
@@ -101,7 +91,7 @@ t_adjust_packages <- function(package_list,
   # as needed by install.packages without version number or file extensions.
   # The file has no header.
   packages <-
-    read.csv(file = package_list,
+    read.csv(file = "H:/2016/Programming/R-Project/miniCRAN_packages.txt",
              header = FALSE)
   names(packages)[1] <- "packages"
   ds_needed <- packages
@@ -158,8 +148,7 @@ t_adjust_packages <- function(package_list,
   if (what_to_do == "upgrade") {
     install.packages(pkgs = to_install,
                      dependencies = TRUE,
-                     type = type,
-                     repos = mirror)
+                     type = type)
   } 
   # Delete packages
   else if (what_to_do == "downgrade") {
@@ -169,8 +158,7 @@ t_adjust_packages <- function(package_list,
   else if (what_to_do == "adjust") {
     install.packages(pkgs = to_install,
                      dependencies = TRUE,
-                     type = type,
-                     repos = mirror)
+                     type = type)
     remove.packages(pkgs = to_delete)
   }  # end if
 }  # end function

@@ -2,7 +2,7 @@
 # Module        : Conventions
 # Author        : Georg Maubach
 # Date          : 2016-06-07
-# Update        : 2016-08-03
+# Update        : 2016-08-15
 # Description   : Conventions in scripts
 # Source System : R 3.3.0 (64 Bit)
 # Target System : R 3.3.0 (64 Bit)
@@ -12,7 +12,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #--------1---------2---------3---------4---------5---------6---------7---------8
 
-# Abbreviations
+# Annotations
 # %ANNO%"  : Annotations of the analyst
 # %ROTA%   : Comments on (r)esults (o)f (t)he (A)nalysis
 # %ANDE%   : (An)alyst (De)cisions
@@ -20,14 +20,51 @@
 # %PROC%   : Explanation to procdedure or operation
 # %EErr%   : Expected error or warning
 
+# Abbreviations
+# Rational
+#  - distinguish the objects from objects used by R functions
+#  - keep the environment tab of R Studio neat and clean
+# c = constants
+# d = datasets
+# m = meta data
+# v = variables
+
 # Environment
 # c_path_project   : Project directory
-# c_path_script    : Path to project programs
-#                  (is normally a sub directory to path_project)
+# ## development   : Directory to store snippets under development which are
+#                    not yet productive.
+#                    This directory is not read by R or other statistical
+#                    software.
+# ## documentation : Directory for project documentation. Documentation shall
+#                    contain all information making it possible to redo the
+#                    analysis with the same results.
+#                    This directory is not read by R or other statistical
+#                    software.
+# c_path_export    : Path to output files in foreign formats, e.g. Excel
+#                    (is normally a sub directory to path_project)
+# ## fundamentals  : Directory to store background information for the project.
+#                    This directory is not read by R or other statistical
+#                    software.
+# c_path_graphics  : Path to directory for graphics output
+#                    (is normally a sub directory to path_project)
 # c_path_input     : Path to input files for the project (not altered by R scripts)
-#                  (is normally a sub directory to path_project)
+#                    (is normally a sub directory to path_project)
+# c_path_jobs      : Path to sub directory containing the jobs for a project
+#                    (is normally a sub directory to path_project)
+# c_path_meta      : Path to R datasets and machine readable information for
+#                    storing meta data, e. g. questionnaire text, variable
+#                    labels, value labels, etc.
+#                    (is normally a sub directory to path_project)
+# c_path_modules   : Path to files and modules containing project specific
+#                    functions
+#                    (is normally a sub directory to path_project)
 # c_path_output    : Path to output files produced by R scripts
-#                  (is normally a sub directory to path_project)
+#                    (is normally a sub directory to path_project)
+# ## raw           : Directory in project directory not read by R containing the
+#                    source data which is not altered using R or other scripts
+#                    but manually to be able to read it in with R or other
+#                    statistical software. The manually altered files are stored
+#                    in the path defined with c_path_input.
 
 # Files
 # inc_file       : filename for files to include and used with source()
@@ -42,15 +79,6 @@
 # xls_file_name    : filename
 # xls_file_path    : directory to store the file in
 # xls_file_location: file.path(xls_file_path, xls_file_name)
-
-# Abbreviations
-# Rational
-#  - distinguish the objects from objects used by R functions
-#  - keep the environment tab of R Studio neat and clean
-# c = constant
-# d = datasets
-# m = meta data
-# v = variables
 
 # Objects
 # sub_name         : Name of a subroutine

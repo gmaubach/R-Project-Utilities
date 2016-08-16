@@ -1,5 +1,5 @@
 #-------------------------------------------------------------------------------
-# Library       : t_toolbox.R
+# Library       : r_toolbox.R
 # Author        : Georg Maubach
 # Date          : 2016-05-25
 # Update        : 2016-07-21
@@ -27,13 +27,13 @@ This software comes with ABSOLUTELY NO WARRANTY.", "\n", "\n"))
 #-----------#
 
 # Set the toolbox path to whatever is suitable for you
-t_toolbox_location = "H:/2016/Programming/R-Project/r_toolbox/"
+v_toolbox_location <- v_toolbox_location
 
 #--------------#
 # Load Modules #
 #--------------#
 
-for (file in list.files(path = t_toolbox_location,
+for (file in list.files(path = v_toolbox_location,
                         pattern = "t_",
                         full.names = TRUE,
                         ignore.case = TRUE)) {
@@ -44,9 +44,11 @@ for (file in list.files(path = t_toolbox_location,
   source(file)
 }
 
+#---------#
+# Cleanup #
+#---------#
+
+rm(list = c("file"))
+
 # EOF .
-
-
-
-
 
