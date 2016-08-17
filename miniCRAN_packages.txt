@@ -50,6 +50,7 @@ e1071
 ellipse
 excel.link
 evaluate
+formattable
 fastmatch
 fBasics
 ff
@@ -243,6 +244,7 @@ verification
 whisker
 withr
 wskm
+xjPlot
 XML
 xml2
 xlsx
