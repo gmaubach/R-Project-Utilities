@@ -225,6 +225,7 @@ stabledist
 stringi
 stringr
 strucchange
+survey
 survival
 svUnit
 tables
