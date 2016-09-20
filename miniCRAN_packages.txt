@@ -229,6 +229,7 @@ strucchange
 survey
 survival
 svUnit
+tabplot
 tables
 tensor
 testthat
