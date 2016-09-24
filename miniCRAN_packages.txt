@@ -33,6 +33,7 @@ crayon
 curl
 DAAG
 data.table
+dataQualityR
 DBI
 deldir
 dendextend
@@ -247,6 +248,7 @@ verification
 whisker
 withr
 wskm
+wordcloud
 xjPlot
 XML
 xml2
