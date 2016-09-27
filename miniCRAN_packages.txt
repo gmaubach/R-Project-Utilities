@@ -94,6 +94,7 @@ htmltools
 httpuv
 httr
 igraph
+im
 ineq
 installr
 intervals
