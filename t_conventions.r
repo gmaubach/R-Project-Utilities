@@ -12,6 +12,16 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #--------1---------2---------3---------4---------5---------6---------7---------8
 
+# Comments follow the form
+# @ProgrammerInitials (Date in format YYYY-MM-DD)
+
+# ToDo's follow the form
+# ToDo @ProgrammerInitials (Date in format YYYY-MM-DD) where date is date of
+# creation.
+# Done @ProgrammerInitials (Date in format YYYY-MM-DD) where date is date of
+# finishing programming of the ToDo.
+
+# @GMA (2016-09-05)
 # Annotations
 # %ANNO%"  : Annotations of the analyst
 # %ROTA%   : Comments on (r)esults (o)f (t)he (A)nalysis
@@ -19,7 +29,12 @@
 # %NEXT%   : Starting point for (next) working day
 # %PROC%   : Explanation to procdedure or operation
 # %EErr%   : Expected error or warning
+# %CAUTION%: Attention to this part of code if changes are made to the script.
+# %WAVE%   : These code parts need to adjusted if new data is processed in the
+#            future.
+# %CORR%   : Correction of erroneous code.
 
+# @GMA (2016-09-01)
 # Abbreviations
 # Rational
 #  - distinguish the objects from objects used by R functions
@@ -29,6 +44,7 @@
 # m = meta data
 # v = variables
 
+# @GMA (2016-09-01)
 # Environment
 # c_path_project   : Project directory
 # ## development   : Directory to store snippets under development which are
@@ -66,6 +82,7 @@
 #                    statistical software. The manually altered files are stored
 #                    in the path defined with c_path_input.
 
+# @GMA (2016-09-01)
 # Files
 # inc_file       : filename for files to include and used with source()
 # sub_call_file  : filename for sub routines to be used with source()
@@ -73,6 +90,7 @@
 # v_file_name    : filename for an RData file
 # v_file_location: file.path(v_file_path, v_file_location)
 
+# @GMA (2016-09-01)
 # xls_workbook     : xls workbook object
 # xls_sheetname    : sheetname
 # xls_ds_to_save   : dataset to be save as an Excel file
@@ -80,6 +98,7 @@
 # xls_file_path    : directory to store the file in
 # xls_file_location: file.path(xls_file_path, xls_file_name)
 
+# @GMA (2016-09-01)
 # Objects
 # sub_name         : Name of a subroutine
 # sub_version      : Version of a subroutine in "YYYY-MM-DD" format
@@ -96,10 +115,12 @@
 # filter_variables : character vector with variables to define filters for cases
 # filter           : logical vector to indicate if a case is filtered or not
 
+# @GMA (2016-09-01)
 # Dates
 # data_created     : Atomic character vector to store a date in format
 #                    "YYYY-MM-DD" as a part of a filename for data
 
+# @GMA (2016-09-01)
 # File Handling
 # Files that store interim results are named with immutable file names, e. g.
 # "SAP-ERP_Customers_2015_raw.RData.
@@ -110,4 +131,3 @@
 # process steps.
 
 # EOF
-
