@@ -1,0 +1,12 @@
+# Findduplicates and corresponding non-duplicates
+duplicates <- duplicated(ds_zww_kunden$Debitor)
+
+list_of_duplicated_debitors <- as.character(ds_zww_kunden[duplicates, "Debitor"])
+
+filter_variable_1 <- unique(list_of_duplicated_debitors)
+
+filter_variable_2 <- ds_zww_kunden[, "Debitor"] %in% filter_variable_1
+
+ds_temp <- ds_zww_kunden[filter_variable_2, ]
+ds_temp
+

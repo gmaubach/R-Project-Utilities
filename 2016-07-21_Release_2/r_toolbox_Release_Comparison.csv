@@ -1,0 +1,16 @@
+Module;Release1;Release2
+r_toolbox.R;TRUE;TRUE
+t_adjust_packages.R;FALSE;TRUE
+t_conventions.r;FALSE;TRUE
+t_create_variable.R;FALSE;TRUE
+t_definitions.R;FALSE;TRUE
+t_find_originals_and_duplicates.R;TRUE;TRUE
+t_get_factor_levels.R;FALSE;TRUE
+t_merge_variables.R;FALSE;TRUE
+t_n_miss.R;FALSE;TRUE
+t_n_valid.R;FALSE;TRUE
+t_openxlsx_shortcuts.r;TRUE;TRUE
+t_rename_variables.R;TRUE;TRUE
+t_replace_na.R;FALSE;TRUE
+t_report_memory.R;FALSE;TRUE
+t_select_vars_by_type.R;FALSE;TRUE

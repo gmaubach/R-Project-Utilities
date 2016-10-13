@@ -1,0 +1,24 @@
+t_toolbox.R - Release Notes - 2016-08-15
+
+New modules
+
+t_highest
+t_lowest
+t_load_dataset
+t_inspect_dataset
+
+Changes
+
+r_toolbox.R
+
+(1)
+Variable and parameter "t_toolbox_location" changed to "v_toolbox_location" to meet new naming conventions.
+
+(2)
+Path to "r_toolbox.R" can be configured using a variable "v_toolbox_location" in main program or by setting the variable "v_toolbox_location" in "r_toolbox.R".
+
+(3)
+Cleanup of not needed left-over variable "file" with rm().
+
+./.
+
