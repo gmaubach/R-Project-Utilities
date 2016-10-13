@@ -26,7 +26,10 @@ This software comes with ABSOLUTELY NO WARRANTY.", "\n", "\n"))
 # If do_test is not defined globally define it here locally by un-commenting it
 t_do_test <- FALSE
 
-library(openxlsx)
+stopifnot(requireNamespace("openxlsx"))
+# see %ToDo%: R-Help Archive zu
+# [R] Visibility of libraries called from within functions
+# ergaenzen
 
 # [ Function Defintion ]--------------------------------------------------------
 t_create_workbook <- function() {
@@ -47,12 +50,12 @@ t_create_workbook <- function() {
   return(createWorkbook())
   }
 
-t_add_sheet <- function (workbook, 
+t_add_sheet <- function (workbook,
                          sheetname,
                          dataset,
                          freeze_row = 2,
                          freeze_col = 2) {
-  # Add a worksheet with an autofilter to the first row, 
+  # Add a worksheet with an autofilter to the first row,
   # freeze the row and column and auto-adjust column width
   #
   # Args:
@@ -78,8 +81,8 @@ t_add_sheet <- function (workbook,
 
   openxlsx::addWorksheet(workbook,
     sheetName = sheetname)
-  openxlsx::writeDataTable(workbook, 
-    sheet = sheetname,     
+  openxlsx::writeDataTable(workbook,
+    sheet = sheetname,
     x = dataset)
   ### writeDataTable writes data to a sheet an adds
   ### autofilter to the first line
@@ -92,10 +95,10 @@ t_add_sheet <- function (workbook,
       firstActiveRow = freeze_row,
       firstActiveCol = freeze_col)
   }
-  
+
   openxlsx::setColWidths(workbook,
     sheet = sheetname,
-    cols = 1:ncol(dataset), 
+    cols = 1:ncol(dataset),
     widths = "auto")
 }
 
@@ -120,10 +123,29 @@ t_write_xlsx <- function(workbook, path, filename, overwrite = FALSE) {
   #
   # Error handling:
   #   None.
-  
-  openxlsx::saveWorkbook(workbook, 
+
+  openxlsx::saveWorkbook(workbook,
     file = file.path(path, filename),
     overwrite = overwrite)
+}
+
+t_export_dataset <- function(dataset,
+                             sheetname,
+                             freeze_row = 2,
+                             freeze_col = 2,
+                             path,
+                             filename,
+                             overwrite = FALSE) {
+    wb <- t_create_workbook()
+    t_add_sheet(workbook = wb,
+                sheetname = sheetname,
+                dataset = dataset,
+                freeze_row = freeze_row,
+                freeze_col = freeze_col)
+    t_write_xlsx(workbook = wb,
+                 path = path,
+                 filename = filename,
+                 overwrite = overwrite)
 }
 
 # [ Test Defintion ]------------------------------------------------------------
