@@ -20,7 +20,7 @@ cat(
   paste0("\n",
          t_module_name, " (Version: ", t_version, ", Status: ", t_status, ")", "\n", "\n",
          "Copyright (C) Georg Maubach 2016
-         
+
          This software comes with ABSOLUTELY NO WARRANTY.", "\n", "\n"))
 
 # If do_test is not defined globally define it here locally by un-commenting it
@@ -52,7 +52,7 @@ t_adjust_packages <- function(package_list,
   #
   # Operation:
   #   The function reads in a list of packages and creates a list of already
-  #   installed packages. If compared both and creates a vector for upgrading
+  #   installed packages. It compares both and creates a vector for upgrading
   #   and downgrading.
   #   According to the desired operation in "what_to_do" the package
   #   installation is extended (upgrade), reduced (downgrade) or adjusted.
@@ -70,8 +70,12 @@ t_adjust_packages <- function(package_list,
   #
   # Error handling:
   #   None.
+  #
+  # See also:
+  #   http://stackoverflow.com/questions/3971815/automatically-update-packages-installed-from-r-forge
+  #   http://stackoverflow.com/questions/16503554/r-3-0-0-update-has-left-loads-of-2-x-packages-incompatible
   #-----------------------------------------------------------------------------
-  
+
   # Read installed packages
   packages <- installed.packages()
   packages <- as.character(packages[, 1])
@@ -85,7 +89,7 @@ t_adjust_packages <- function(package_list,
             row.names = FALSE)
   ds_avail <- data.frame(packages, stringsAsFactors = FALSE)
   ds_avail$available <- TRUE
-  
+
   # Read needed packages from list
   # List is a simple csv file with one column containing the package names
   # as needed by install.packages without version number or file extensions.
@@ -96,22 +100,22 @@ t_adjust_packages <- function(package_list,
   names(packages)[1] <- "packages"
   ds_needed <- packages
   ds_needed$needed <- TRUE
-  
+
   # Compare installed and needed packages
   ds_package_comparison <- merge(x = ds_avail,
                                  y = ds_needed,
                                  by = "packages",
                                  all = TRUE)
-  
+
   # Mark base packages as needed although they might not exist in the list of
   # needed packages
   base_packages <- sessionInfo()$basePkgs
   base_packages <- c(base_packages, "tools")
-  
+
   #ds_package_comparison$needed[ds_package_comparison$packages %in% base_packages] <- TRUE
   ds_package_comparison[["needed"]][ds_package_comparison[["packages"]] %in% base_packages] <-
     TRUE
-  
+
   # Replace NA with FALSE
   ds_package_comparison$available <-
     ifelse(is.na(ds_package_comparison$available),
@@ -121,25 +125,25 @@ t_adjust_packages <- function(package_list,
     ifelse(is.na(ds_package_comparison$needed),
            FALSE,
            ds_package_comparison$needed)
-  
+
   # Determine upgrade
   ds_package_comparison$upgrade <- NA
   ds_package_comparison$upgrade <- with(ds_package_comparison,
                                         ifelse(needed == TRUE & available == FALSE,
                                                TRUE,
                                                FALSE))
-  
+
   # Determine downgrade
   ds_package_comparison$downgrade <- with(ds_package_comparison,
                                           ifelse(available == TRUE &
                                                    needed == FALSE,
                                                  TRUE,
                                                  FALSE))
-  
+
   # Determine what needs to be installed
   to_install <-
     ds_package_comparison[["packages"]][ds_package_comparison[["upgrade"]] == TRUE]
-  
+
   # Determine what needs to be deleted
   to_delete <-
     ds_package_comparison[["packages"]][ds_package_comparison[["downgrade"]] == TRUE]
@@ -149,7 +153,7 @@ t_adjust_packages <- function(package_list,
     install.packages(pkgs = to_install,
                      dependencies = TRUE,
                      type = type)
-  } 
+  }
   # Delete packages
   else if (what_to_do == "downgrade") {
     remove.packages(pkgs = to_delete)
@@ -171,10 +175,10 @@ t_test <- function(do_test = FALSE) {
     t_adjust_packages(package_list = file_name,
                       what_to_do = "upgrade",
                       type = "source")
-    
+
     # Test: downgrade
     warning("Option 'downgrade' not tested.")
-    
+
     # Test: adjust
     warning("Option 'adjust' not tested.")
     }  # end if
