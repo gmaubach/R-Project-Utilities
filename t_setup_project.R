@@ -67,7 +67,9 @@ t_setup_project <- function() {
   #-----------------------------------------------------------------------------
 
   # Get and/or create project directory
-  v_project_dir <- svDialogs::dlgDir()$res
+  v_paths_relative <- list()
+  v_paths_relative$project <- "C:/temp/MyProject"  # default before user input
+  v_paths_relative$project <- svDialogs::dlgDir()$res
 
   # Define names for sub directories
   data          <- "data"             # data to be loaded into or
@@ -77,7 +79,7 @@ t_setup_project <- function() {
   fundamentals  <- "fundamentals"     # background knowledge
   input         <- "data/input"       # input data eventually manually
                                       # revised for import
-  meta          <- "data/meta"        # meta data (e. g. lookup tables)
+  master        <- "data/master"      # master data (e. g. lookup tables)
   output        <- "data/output"
   raw           <- "data/raw"         # a copy of all input data never
                                       # touched for safety reasons and
@@ -101,12 +103,15 @@ t_setup_project <- function() {
   presentations <- "results/presentations"
   temp          <- "temp"
 
+  v_project_dir <- v_paths_relative$project
+
   v_paths_relative <- list(
     project       = v_project_dir,
     documentation = documentation,
     fundamentals  = fundamentals,
+    data          = data,
     input         = input,
-    meta          = meta,
+    master        = master,
     output        = output,
     raw           = raw,
     program       = program,
@@ -118,16 +123,20 @@ t_setup_project <- function() {
     analyse       = analyse,
     present       = present,
     modules       = modules,
-    graphic       = graphics,
-    table         = tables,
-    presentation  = presentations,
+    results       = results,
+    graphics      = graphics,
+    tables        = tables,
+    presentations = presentations,
     temp          = temp
   )
+
   v_paths_full      <- list(
+    project       = v_project_dir,
     documentation = file.path(v_project_dir, documentation),
     fundamentals  = file.path(v_project_dir, fundamentals),
+    data          = file.path(v_project_dir, data),
     input         = file.path(v_project_dir, input),
-    meta          = file.path(v_project_dir, meta),
+    master        = file.path(v_project_dir, master),
     output        = file.path(v_project_dir, output),
     raw           = file.path(v_project_dir, raw),
     program       = file.path(v_project_dir, program),
@@ -139,9 +148,10 @@ t_setup_project <- function() {
     analyse       = file.path(v_project_dir, analyse),
     present       = file.path(v_project_dir, present),
     modules       = file.path(v_project_dir, modules),
+    results       = file.path(v_project_dir, results),
     graphic       = file.path(v_project_dir, graphics),
-    table         = file.path(v_project_dir, tables),
-    presentation  = file.path(v_project_dir, presentations),
+    tables        = file.path(v_project_dir, tables),
+    presentations = file.path(v_project_dir, presentations),
     temp          = file.path(v_project_dir, temp)
     )
 
@@ -174,7 +184,6 @@ t_setup_project <- function() {
   # Save README file
   cat("-------------------------------------------------------------\n")
   cat("Saving README.md file ...\n")
-
 readme <- "
 ---
 title: 'Your project title here
@@ -205,7 +214,7 @@ output: html_document
 
   # Programs
   ´´´{r}
-  source('main_program.R')
+  source('main.R')
   ´´´
 
   # Information on used system and configuration
@@ -218,6 +227,8 @@ output: html_document
 "
 cat(readme, file = file.path(v_project_dir,
                              "README.md"))
+
+rm("v_project_dir")
 
 }  # end function
 

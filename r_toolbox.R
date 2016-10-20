@@ -27,13 +27,13 @@ This software comes with ABSOLUTELY NO WARRANTY.", "\n", "\n"))
 #-----------#
 
 # Set the toolbox path to whatever is suitable for you
-v_toolbox_location <- v_toolbox_location
+v_toolbox <- v_toolbox
 
 #--------------#
 # Load Modules #
 #--------------#
 
-for (file in list.files(path = v_toolbox_location,
+for (file in list.files(path = v_toolbox,
                         pattern = "t_",
                         full.names = TRUE,
                         ignore.case = TRUE)) {
