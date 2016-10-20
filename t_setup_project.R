@@ -39,7 +39,7 @@ cat(
 library(svDialogs)
 
 # If do_test is not defined globally define it here locally by un-commenting it
-t_do_test <- FALSE
+t_do_test <- TRUE
 
 # [ Function Defintion ]--------------------------------------------------------
 t_setup_project <- function() {
@@ -83,11 +83,18 @@ t_setup_project <- function() {
                                       # touched for safety reasons and
                                       # not read by R
   program       <- "program"          # all scripts and runnable files
+  gather        <- "program/gather"   # scripts to gather data
+  import        <- "program/import"   # scripts for data import
+  clean         <- "program/clean"    # scripts for data cleaning
+  prepare       <- "program/prepare"  # scripts for data prep
+  merge         <- "program/merge"    # scripts for data merging
+  analyse       <- "program/analyse"  # scripts for data analysis
+  present       <- "program/present"  # scripts for data presentation
   modules       <- "program/modules"  # project specific packages, files
                                       # or functions in separate files as
                                       # well as all other sub routines to
                                       # be sourced or loaded
-  results       <- "results"          # container for all resulring data
+  results       <- "results"          # container for all resulting data
                                       # in an aggregated form
   graphics      <- "results/graphics"
   tables        <- "results/tables"
@@ -103,6 +110,13 @@ t_setup_project <- function() {
     output        = output,
     raw           = raw,
     program       = program,
+    gather        = gather,
+    import        = import,
+    clean         = clean,
+    prepare       = prepare,
+    merge         = merge,
+    analyse       = analyse,
+    present       = present,
     modules       = modules,
     graphic       = graphics,
     table         = tables,
@@ -117,6 +131,13 @@ t_setup_project <- function() {
     output        = file.path(v_project_dir, output),
     raw           = file.path(v_project_dir, raw),
     program       = file.path(v_project_dir, program),
+    gather        = file.path(v_project_dir, gather),
+    import        = file.path(v_project_dir, import),
+    clean         = file.path(v_project_dir, clean),
+    prepare       = file.path(v_project_dir, prepare),
+    merge         = file.path(v_project_dir, merge),
+    analyse       = file.path(v_project_dir, analyse),
+    present       = file.path(v_project_dir, present),
     modules       = file.path(v_project_dir, modules),
     graphic       = file.path(v_project_dir, graphics),
     table         = file.path(v_project_dir, tables),
@@ -150,9 +171,54 @@ t_setup_project <- function() {
   cat("... Done! (Saving path names)\n")
   cat("-------------------------------------------------------------\n")
 
-  cat("Don't forget to create a README.md file to document your project\n")
-  cat("A template for that README.md file can be found in the root\n")
-  cat("directory of the project directory!\n")
+  # Save README file
+  cat("-------------------------------------------------------------\n")
+  cat("Saving README.md file ...\n")
+
+readme <- "
+---
+title: 'Your project title here
+author: 'Author(s) name(s) here'
+date: 'Current date here'
+output: html_document
+---
+
+  ```{r setup, include=FALSE}
+  knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+  ```
+  # Project Context
+
+  # Goals
+
+  # Approach
+  ## Exploring the problem
+  ## Exploring the solution
+  ## Defining data usage
+
+  # Data Mining
+  ## Data import
+  ## Data preparation
+  ## Data surveying
+  ## Data modeling
+
+  # Deployment
+
+  # Programs
+  ´´´{r}
+  source('main_program.R')
+  ´´´
+
+  # Information on used system and configuration
+  ```{r}
+  cat('Gathering system information after running main_program.R ...\n')
+  sessionInfo()
+  cat('... Done! (Gathering system information)\n')
+  ```
+  # EOF .
+"
+cat(readme, file = file.path(v_project_dir,
+                             "README.md"))
+
 }  # end function
 
 # [ Test Defintion ]------------------------------------------------------------
