@@ -1,3 +1,4 @@
+
 ---
 title: 'Your project title here
 author: 'Author(s) name(s) here'
@@ -27,13 +28,20 @@ knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
 
 # Programs
 ´´´{r}
-source("main_program.R")
+source('main.R')
 ´´´
 
 # Information on used system and configuration
 ```{r}
-cat("Gathering system information after running 'main_program.R' ...\n")
+cat('Gathering system information after running main_program.R ...
+')
 sessionInfo()
-cat("... Done! (Gathering system information)\n")
+cat('... Done! (Gathering system information)
+')
 ```
+
+# Organisation of the project
+
+# Instructions for reproducing the project
+
 # EOF .

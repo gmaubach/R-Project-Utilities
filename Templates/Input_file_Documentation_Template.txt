@@ -1,0 +1,39 @@
+#===========================================================
+Input File Documentation
+#===========================================================
+#
+# Input File Name  :
+# SHA-512 File Hash: Tools and services see (*1)
+# Arranger         : Employee Name
+#
+# Source System Information
+# -------------------------
+# System Name: e. g. SAP-ERP, SAP-BW, Oracle Database
+# URI        :
+# Version    :
+#
+# Query Statements
+# ----------------
+# Example 1 (GUI)
+# - Query
+# - Date Interval
+# - Filter
+# - Selected fields/columns
+#
+# Example 2 (Script)
+# SELECT Id, CompanyName, City, Country
+# FROM Supplier
+# WHERE Country IN ('USA', 'UK', 'Japan')
+#
+# Transformatons
+# --------------
+e. g. filtering, sorting, variable name changes, etc.
+#
+#===========================================================
+
+# Sources
+# (*1) MD5, SHA-1, SHA-256 Checksum Tools
+# http://bit.ly/2ggdPZk,
+# https://www.thomas-krenn.com/de/wiki/Md5sum_und_sha1sum_zum_%C3%9Cberpr%C3%BCfen_von_Dateidownloads_verwenden
+
+# EOF .

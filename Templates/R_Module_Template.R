@@ -2,6 +2,7 @@
 # Organisation: Wein Wolf Import GmbH & Co. Verwaltungs KG
 # Department  : Sales
 # Author      : Georg Maubach
+# Contributors: n/a
 #
 # Copyright (C) 2016,
 #     Wein Wolf Import GmbH & Co. Verwaltngs KG
