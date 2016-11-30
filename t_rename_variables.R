@@ -49,13 +49,15 @@ t_rename_variables <- function(dataset,
   # Error handling:
   #   None.
   #
-  # Credits: 
+  # Credits:
   #   http://stackoverflow.com/questions/21502465/replacement-for-rename-in-dplyr/26146202#26146202
+
+  stopifnot(identical(length(old_names), length(new_names)))
 
   variable_names <- colnames(dataset)
   variable_names[which(variable_names %in% old_varnames)] <- new_varnames
   colnames(dataset) <- variable_names
-  
+
   return(dataset)
 }
 
@@ -63,9 +65,9 @@ t_rename_variables <- function(dataset,
 t_test <- function(do_test = FALSE) {
   if (do_test == TRUE) {
     cat("\n", "\n", "Test function ", t_module_name, "\n", "\n")
-    
+
     # Example dataset
-    gene <- c("ENSG00000208234","ENSG00000199674","ENSG00000221622","ENSG00000207604", 
+    gene <- c("ENSG00000208234","ENSG00000199674","ENSG00000221622","ENSG00000207604",
               "ENSG00000207431","ENSG00000221312","ENSG00134940305","ENSG00394039490",
               "ENSG09943004048")
     hsap <- c(0,0,0, 0, 0, 0, 1,1, 1)
@@ -75,65 +77,65 @@ t_test <- function(do_test = FALSE) {
     cfam <- c(NA,2,NA, 2, 1, 2, 2,NA, NA)
     ds_example <- data.frame(gene, hsap, mmul, mmus, rnor, cfam)
     ds_example$gene <- as.character(ds_example$gene)
-    
+
     # Test 1
     print("Test 2: Rename all variables but providing to few names")
-    
+
     cat("\n", "\n", "Example dataset before function call", "\n", "\n")
     print(ds_example)
-    
+
     cat("\n", "\n", "Function call", "\n", "\n")
-    
+
     # ds_example <- t_rename_variables(dataset = ds_example,
     #                                  old_varnames = NULL,
     #                                  new_varnames = c("var1", "var2"))
-    
+
     cat("\n", "\n", "Example dataset after function call", "\n", "\n")
     print(ds_example)
 
     # Test 2
     print("Test 2: Rename all variables")
-    
+
     cat("\n", "\n", "Example dataset before function call", "\n", "\n")
     print(ds_example)
-    
+
     cat("\n", "\n", "Function call", "\n", "\n")
-    
+
     ds_example <- t_rename_variables(dataset = ds_example,
                                      old_varnames = NULL,
                                      new_varnames = c("var1", "var2", "var3",
                                                       "var4", "var5", "var6"))
-    
+
     cat("\n", "\n", "Example dataset after function call", "\n", "\n")
     print(ds_example)
-    
+
     # Test 3
     print("Test 3: Rename selected variables")
-    
+
     cat("\n", "\n", "Example dataset before function call", "\n", "\n")
     print(ds_example)
-    
+
     cat("\n", "\n", "Function call", "\n", "\n")
-    
+
     ds_example <- t_rename_variables(dataset = ds_example,
                                      old_varnames = c("mmul", "mmus"),
                                      new_varnames = c("var1", "var2"))
-    
+
     cat("\n", "\n", "Example dataset after function call", "\n", "\n")
     print(ds_example)
-    
+
     # Test 4
     print("Test 4: Rename selected variables but given wrong amount of variables")
-    
+
     cat("\n", "\n", "Example dataset before function call", "\n", "\n")
     print(ds_example)
-    
+
     cat("\n", "\n", "Function call", "\n", "\n")
-    
+
     # ds_example <- t_rename_variables(dataset = ds_example,
     #                                  old_varnames = c("var1", "var2","var3"),
     #                                  new_varnames = c("mmul", "mmus"))
-    
+
     cat("\n", "\n", "Example dataset after function call", "\n", "\n")
     print(ds_example)
   }

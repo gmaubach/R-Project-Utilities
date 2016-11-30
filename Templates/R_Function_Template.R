@@ -5,8 +5,18 @@
 # Contributors: n/a
 #
 # Copyright (C) 2016,
-#     Wein Wolf Import GmbH & Co. Verwaltngs KG
-# All rights reserved.
+#     Wein Wolf Import GmbH & Co. Verwaltungs KG
+#
+# This program is free software; you can redistribute it
+# and/or modify it under the terms of the GNU General Public
+# License Version 2 as published by the Free Software
+# Foundation.
+# (https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+#
+# This program is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied
+# warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+# PURPOSE.
 #-----------------------------------------------------------
 
 cat("\nDefining function_name here ...\n")

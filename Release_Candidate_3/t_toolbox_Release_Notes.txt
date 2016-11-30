@@ -1,4 +1,4 @@
-t_toolbox.R - Release Notes - 2016-08-15
+t_toolbox.R - Release Notes - 2016-09-29
 
 New modules
 
@@ -19,6 +19,16 @@ Path to "r_toolbox.R" can be configured using a variable "v_toolbox_location" in
 
 (3)
 Cleanup of not needed left-over variable "file" with rm().
+
+(4)
+In "t_rename_variables()" the command
+
+"stopifnot(identical(length(old_names), length(new_names)))"
+
+was added to check if the list of old variable names matches the list of new variables names.
+
+(5)
+The function t_select_variables_by_name() was added.
 
 ./.
 
