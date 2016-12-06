@@ -2,7 +2,7 @@
 # Library       : r_toolbox.R
 # Author        : Georg Maubach
 # Date          : 2016-05-25
-# Update        : 2016-07-21
+# Update        : 2016-12-06
 # Description   : Utilities for working with R
 # Source System : R 3.2.5 (64 Bit)
 # Target System : R 3.2.5 (64 Bit)
@@ -27,13 +27,14 @@ This software comes with ABSOLUTELY NO WARRANTY.", "\n", "\n"))
 #-----------#
 
 # Set the toolbox path to whatever is suitable for you
-v_toolbox <- v_toolbox
+c_path_toolbox     <- c_path_toolbox
+c_filename_toolbox <- c_filename_toolbox
 
 #--------------#
 # Load Modules #
 #--------------#
 
-for (file in list.files(path = v_toolbox,
+for (file in list.files(path = c_path_toolbox,
                         pattern = "t_",
                         full.names = TRUE,
                         ignore.case = TRUE)) {

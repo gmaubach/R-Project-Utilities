@@ -18,10 +18,8 @@ t_status = "released"
 
 cat(
   paste0("\n",
-         t_module_name, " (Version: ", t_version, ", Status: ", t_status, ")", "\n", "\n",
-         "Copyright (C) Georg Maubach 2016
-
-This software comes with ABSOLUTELY NO WARRANTY.", "\n", "\n"))
+         t_module_name, " (Version: ", t_version, ", Status: ", t_status, ")", "\n\n",
+         "This software comes with ABSOLUTELY NO WARRANTY.", "\n\n"))
 
 # If do_test is not defined globally define it here locally by un-commenting it
 t_do_test <- FALSE

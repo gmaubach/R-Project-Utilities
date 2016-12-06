@@ -37,11 +37,14 @@
 # @GMA (2016-09-01)
 # Abbreviations
 # Rational
-#  - distinguish the objects from objects used by R functions
+#  - distinguish user defined objects from objects used by R
 #  - keep the environment tab of R Studio neat and clean
 # c = constants
 # d = datasets
 # m = meta data
+# p = procedure
+# s = customer specific code (confidential, copyright reserved)
+# t = toolbox objects, e. g. functions
 # v = variables
 
 # @GMA (2016-09-01)

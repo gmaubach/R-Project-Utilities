@@ -7,7 +7,8 @@ r_toolbox History
 =======
 r_toolbox History
 
-# 2016-10-20
+# 2016-12-06
 ## r_toolbox.R
-- v_toolbox_location -> v_toolbox
+- v_toolbox_location -> c_filename_toolbox
+- c_path_toolbox     <- c_path_toolbox
 >>>>>>> 6a1559803cc7dce762db711211b01d8702585ae9
