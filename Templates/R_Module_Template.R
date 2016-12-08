@@ -1,8 +1,11 @@
 #-----------------------------------------------------------
+# Project     : <Project Name>
 # Organisation: Wein Wolf Import GmbH & Co. Verwaltungs KG
 # Department  : Sales
 # Author      : Georg Maubach
 # Contributors: n/a
+# Date        : YYYY-MM-DD
+# Update      : YYYY-MM-DD
 #
 # Copyright (C) 2016,
 #     Wein Wolf Import GmbH & Co. Verwaltngs KG
@@ -31,7 +34,8 @@ cat("#  [ Present ] ....................................\n")
 cat("#  [ Output ] -------------------------------------\n")
 cat("#  [ Export ] .....................................\n")
 cat("#  [ Save ] .......................................\n")
-cat("# [ At End  ] -------------------------------------\n")
+cat("#  [ Cleanup ] ------------------------------------\n")
+cat("#  [ At End ] -------------------------------------\n")
 cat("#= [ END ] ========================================\n")
 
 cat("#                   [ End Module ]                 \n")
