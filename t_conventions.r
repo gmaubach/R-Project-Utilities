@@ -178,6 +178,8 @@
 #                      is duplicate or not
 # v_unique           : logical vector to indicate if a case
 #                      is unique or not
+# v_complete         : logical vector to indicate complete
+#                      cases
 # v_filter_variables : character vector with variables to
 #                      define filters for cases
 # v_filter           : logical vector to indicate if a case
