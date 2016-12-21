@@ -4,8 +4,8 @@
 # Department  : Sales
 # Author      : Georg Maubach
 # Contributors: n/a
-# Date        : YYYY-MM-DD
-# Update      : YYYY-MM-DD
+# Date        : 2016-12-21
+# Update      : 2016-12-21
 #
 # Copyright (C) 2016,
 #     Wein Wolf Import GmbH & Co. Verwaltngs KG
@@ -14,6 +14,8 @@
 cat("===================================================\n")
 cat("#= [ Module ]: Churn_Functions_Result_Export.R\n")
 cat("===================================================\n")
+
+cat("#= [ Configuration ] ==============================\n")
 
 cat("#= [ Libraries ] ==================================\n")
 

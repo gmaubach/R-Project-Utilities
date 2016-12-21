@@ -2,7 +2,7 @@
 # Module        : t_setup_project.R
 # Author        : Georg Maubach
 # Date          : 2016-10-19
-# Update        : 2016-10-19
+# Update        : 2016-12-21
 # Description   : Setup a directory structure for a new analytics
 #                 project
 # Source System : R 3.3.0 (64 Bit)
@@ -67,9 +67,9 @@ t_setup_project <- function() {
   #-----------------------------------------------------------------------------
 
   # Get and/or create project directory
-  v_paths_relative <- list()
-  v_paths_relative$project <- "C:/temp/MyProject"  # default before user input
-  v_paths_relative$project <- svDialogs::dlgDir()$res
+  c_path_relative <- list()
+  c_path_relative$project <- "C:/temp/MyProject"  # default before user input
+  c_path_relative$project <- svDialogs::dlgDir()$res
 
   # Define names for sub directories
   data          <- "data"             # data to be loaded into or
@@ -77,22 +77,23 @@ t_setup_project <- function() {
   documentation <- "documentation"    # explanatory material for results
                                       # (e. g. knitR documents)
   fundamentals  <- "fundamentals"     # background knowledge
-  input         <- "data/input"       # input data eventually manually
+  input         <- "data/20_input"    # input data eventually manually
                                       # revised for import
-  master        <- "data/master"      # master data (e. g. lookup tables)
-  output        <- "data/output"
-  raw           <- "data/raw"         # a copy of all input data never
+  master        <- "data/90_master"   # master data (e. g. lookup tables)
+  output        <- "data/30_output"   # RData files
+  export        <- "data/40_export"   # Data files to external programs
+  raw           <- "data/10_raw"      # a copy of all input data never
                                       # touched for safety reasons and
                                       # not read by R
   program       <- "program"          # all scripts and runnable files
-  gather        <- "program/gather"   # scripts to gather data
-  import        <- "program/import"   # scripts for data import
-  clean         <- "program/clean"    # scripts for data cleaning
-  prepare       <- "program/prepare"  # scripts for data prep
-  merge         <- "program/merge"    # scripts for data merging
-  analyse       <- "program/analyse"  # scripts for data analysis
-  present       <- "program/present"  # scripts for data presentation
-  modules       <- "program/modules"  # project specific packages, files
+  gather     <- "program/10_gather"   # scripts to gather data
+  import     <- "program/20_import"   # scripts for data import
+  clean      <- "program/30_clean"    # scripts for data cleaning
+  prepare    <- "program/40_prepare"  # scripts for data prep
+  merge      <- "program/50_merge"    # scripts for data merging
+  analyse    <- "program/60_analyse"  # scripts for data analysis
+  present    <- "program/70_present"  # scripts for data presentation
+  modules    <- "program/90_modules"  # project specific packages, files
                                       # or functions in separate files as
                                       # well as all other sub routines to
                                       # be sourced or loaded
@@ -105,16 +106,17 @@ t_setup_project <- function() {
   web           <- "results/web"      # web site pages
   temp          <- "temp"
 
-  v_project_dir <- v_paths_relative$project
+  c_project_dir <- c_path_relative$project
 
-  v_paths_relative <- list(
-    project       = v_project_dir,
+  c_path_relative <- list(
+    project       = c_project_dir,
     documentation = documentation,
     fundamentals  = fundamentals,
     data          = data,
     input         = input,
     master        = master,
     output        = output,
+    export        = export,
     raw           = raw,
     program       = program,
     gather        = gather,
@@ -134,37 +136,69 @@ t_setup_project <- function() {
     temp          = temp
   )
 
-  v_paths_full      <- list(
-    project       = v_project_dir,
-    documentation = file.path(v_project_dir, documentation),
-    fundamentals  = file.path(v_project_dir, fundamentals),
-    data          = file.path(v_project_dir, data),
-    input         = file.path(v_project_dir, input),
-    master        = file.path(v_project_dir, master),
-    output        = file.path(v_project_dir, output),
-    raw           = file.path(v_project_dir, raw),
-    program       = file.path(v_project_dir, program),
-    gather        = file.path(v_project_dir, gather),
-    import        = file.path(v_project_dir, import),
-    clean         = file.path(v_project_dir, clean),
-    prepare       = file.path(v_project_dir, prepare),
-    merge         = file.path(v_project_dir, merge),
-    analyse       = file.path(v_project_dir, analyse),
-    present       = file.path(v_project_dir, present),
-    modules       = file.path(v_project_dir, modules),
-    results       = file.path(v_project_dir, results),
-    graphic       = file.path(v_project_dir, graphics),
-    tables        = file.path(v_project_dir, tables),
-    paper         = file.path(v_project_dir, paper),
-    slides        = file.path(v_project_dir, slides),
-    web           = file.path(v_project_dir, web),
-    temp          = file.path(v_project_dir, temp)
+  c_path_full     <- list(
+    project       = c_project_dir,
+    documentation = file.path(c_project_dir, documentation),
+    fundamentals  = file.path(c_project_dir, fundamentals),
+    data          = file.path(c_project_dir, data),
+    input         = file.path(c_project_dir, input),
+    master        = file.path(c_project_dir, master),
+    output        = file.path(c_project_dir, output),
+    export        = file.path(c_project_dir, export),
+    raw           = file.path(c_project_dir, raw),
+    program       = file.path(c_project_dir, program),
+    gather        = file.path(c_project_dir, gather),
+    import        = file.path(c_project_dir, import),
+    clean         = file.path(c_project_dir, clean),
+    prepare       = file.path(c_project_dir, prepare),
+    merge         = file.path(c_project_dir, merge),
+    analyse       = file.path(c_project_dir, analyse),
+    present       = file.path(c_project_dir, present),
+    modules       = file.path(c_project_dir, modules),
+    results       = file.path(c_project_dir, results),
+    graphics     = file.path(c_project_dir, graphics),
+    tables        = file.path(c_project_dir, tables),
+    paper         = file.path(c_project_dir, paper),
+    slides        = file.path(c_project_dir, slides),
+    web           = file.path(c_project_dir, web),
+    temp          = file.path(c_project_dir, temp)
     )
+
+  c_path          <- list(
+    project       = c_project_dir,
+    documentation = file.path(c_project_dir, documentation),
+    fundamentals  = file.path(c_project_dir, fundamentals),
+    data          = list(
+      dir           = file.path(c_project_dir, data),
+      input         = file.path(c_project_dir, input),
+      master        = file.path(c_project_dir, master),
+      output        = file.path(c_project_dir, output),
+      export        = file.path(c_project_dir, export),
+      raw           = file.path(c_project_dir, raw) ),
+    program       = list(
+      dir           = file.path(c_project_dir, program),
+      gather        = file.path(c_project_dir, gather),
+      import        = file.path(c_project_dir, import),
+      clean         = file.path(c_project_dir, clean),
+      prepare       = file.path(c_project_dir, prepare),
+      merge         = file.path(c_project_dir, merge),
+      analyse       = file.path(c_project_dir, analyse),
+      present       = file.path(c_project_dir, present),
+      modules       = file.path(c_project_dir, modules) ),
+    results       = list(
+      dir           = file.path(c_project_dir, results),
+      graphics       = file.path(c_project_dir, graphics),
+      tables        = file.path(c_project_dir, tables),
+      paper         = file.path(c_project_dir, paper),
+      slides        = file.path(c_project_dir, slides),
+      web           = file.path(c_project_dir, web) ),
+    temp          = file.path(c_project_dir, temp)
+  )
 
   # Create sub directories if they are not there
   cat("-------------------------------------------------------------\n")
   cat("Creating directories ...\n")
-  for (entry in v_paths_full) {
+  for (entry in c_path_full) {
     if (file.exists(entry)) {
       cat("Directory ", entry, " NOT created. Exists already!\n")
     } else {
@@ -177,80 +211,21 @@ t_setup_project <- function() {
 
   # Save config file
   # The project config file contains 2 lists:
-  # 1. v_path_full
-  # 2. v_path_relative
+  # 1. c_path_full
+  # 2. c_path_relative
   # Each list contains the path names for each directory of the project.
   cat("-------------------------------------------------------------\n")
   cat("Saving project config file ...\n")
-  v_file_config <- file.path(v_paths_full$program,
+  v_file_config <- file.path(c_path_full$program,
                              "project_config.RData")
-  save(list = c("v_paths_full", "v_paths_relative"),
+  save(list = c("c_path_full", "c_path_relative", "c_path"),
        file = v_file_config
   )
   cat("File ", v_file_config, " created!\n")
   cat("... Done! (Saving path names)\n")
   cat("-------------------------------------------------------------\n")
 
-  # Save README file
-  cat("-------------------------------------------------------------\n")
-  cat("Saving README.md file ...\n")
-readme <- "
----
-title: 'Your project title here
-author: 'Author(s) name(s) here'
-date: 'Current date here'
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
-```
-# Project Context
-
-# Goals
-
-# Approach
-## Exploring the problem
-## Exploring the solution
-## Defining data usage
-
-# Data Mining
-## Data import
-## Data preparation
-## Data surveying
-## Data modeling
-
-# Deployment
-
-# Programs
-´´´{r}
-source('main.R')
-´´´
-
-# Information on used system and configuration
-```{r}
-cat('Gathering system information after running main_program.R ...\n')
-sessionInfo()
-cat('... Done! (Gathering system information)\n')
-```
-
-# Organisation of the project
-```{r}
-list.dir(path = "project_directory",
-  all.files = FALSE,
-  recursive = TRUE,
-  include.dirs = TRUE)
-```
-
-# Instructions for reproducing the project
-
-# EOF .
-"
-cat(readme, file = file.path(v_project_dir,
-                             "README.md",
-                             append = FALSE))
-
-rm("v_project_dir")
+rm("c_project_dir")
 
 }  # end function
 

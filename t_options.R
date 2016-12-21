@@ -1,1 +1,4 @@
-options(digits = 2)
+options(
+  digits = 2,
+  stringsAsFactors = FALSE)
+

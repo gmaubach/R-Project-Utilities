@@ -3,6 +3,8 @@
 # Department  : Sales
 # Author      : Georg Maubach
 # Contributors: n/a
+# Created     : 2016-12-14
+# Update      : 2016-12-15
 #
 # Copyright (C) 2016,
 #     Wein Wolf Import GmbH & Co. Verwaltungs KG
@@ -20,7 +22,7 @@
 #-----------------------------------------------------------
 
 t_module_name = "t_calculate_RFM_model.R"
-t_version = "2016-12-14"
+t_version = "2016-12-15"
 t_status = "released"
 
 cat(
@@ -50,9 +52,10 @@ t_calculate_RFM_model <- function
  basis_4_frequency,
  basis_4_monetary,
  classes = 4,
- regency_weight = 1,
- frequency_weight = 1,
- monetary_weight = 1)
+ weight = list(regency = 1,
+               frequency = 1,
+               monetary = 1)
+ )
 #-----------------------------------------------------------
 #' @title t_calculate_RFM_model()
 #'
@@ -99,17 +102,23 @@ t_calculate_RFM_model <- function
 #'   can use the different weighting arguments.
 #'
 #' @return Returns a complex object containing
-#' (1) a list of factors with regency, frequency and
-#' monetary classes,
-#' (2) a list of vectors with regency, frequency and
+#' (1) a list of vectors with regency, frequency and
 #' monetary class boundaries,
-#' (3) a list of vectors with regency, frequency and
+#' (2) a list of vectors with regency, frequency and
 #' monetary class values,
-#' (4) a list with the RFM score with the score number and
+#' (3) a list with the RFM score with the score number and
 #' the rescaled score number.
 #' The return object can be subsetted twice, e.g.
 #' RFM$classes$regency, RFM$boundaries$monetary,
 #' RFM$score$value, RFM$score$rescaled.
+#' If a flat data structure is needed coerce the complex
+#' object return to a data frame like
+#' rfm_model <-
+#'   t_calculate_RFM_model(set arguemnts as needed)
+#' d_rfm_model <- as.data.frame(rfm_model).
+#' The return object has the same length as the original
+#' data and will NOT be sorted. It can be match by cbind()
+#' into the original data directly.
 #'
 #' @author Georg Maubach
 #'
@@ -132,11 +141,20 @@ t_calculate_RFM_model <- function
 
   library(Hmisc)
 
+  stopifnot(is.list(weight))
+
+  attach(weight)
+  stopifnot(exists("regency"))
+  stopifnot(exists("frequency"))
+  stopifnot(exists("monetary"))
+  detach(weight)
+
   #---------------------------------------------------------
 
-  cat("Calculating 'Regency' ...\n")
-  regency_classes <- Hmisc::cut2(x = basis_4_regency,
-                               g = classes)
+  cat("Calculating 'Regency'   ...  ")
+  regency_classes <-
+    Hmisc::cut2(x = basis_4_regency,
+                g = classes)
   # 1 is very recent, while 4 is least recent
   # (= best 1 to worst 4)
   # table(regency_class)
@@ -147,8 +165,9 @@ t_calculate_RFM_model <- function
   # i. e. reversed:
   # from 1 - 2 - 3 - 4  to
   #      4 - 3 - 2 - 1.
-  regency_classes <- factor(regency_classes,
-                          levels = rev(levels(regency_classes)))
+  regency_classes <-
+    factor(regency_classes,
+           levels = rev(levels(regency_classes)))
 
   regency_boundaries <- as.character(regency_classes)
 
@@ -158,10 +177,11 @@ t_calculate_RFM_model <- function
 
   #---------------------------------------------------------
 
-  cat("Calculating 'Frequency' ... \n")
+  cat("Calculating 'Frequency' ...  ")
 
-  frequency_classes <- Hmisc::cut2(x = basis_4_frequency,
-                                   g = classes)
+  frequency_classes <-
+    Hmisc::cut2(x = basis_4_frequency,
+                g = classes)
   # 1 is least frequent, while 4 is most frequent
   # (= low 1 to high 4)
 
@@ -173,10 +193,11 @@ t_calculate_RFM_model <- function
 
   #---------------------------------------------------------
 
-  cat("Calculate 'Monetary' ... \n")
+  cat("Calculating 'Monetary'  ...  ")
 
-  monetary_classes <- Hmisc::cut2(x = basis_4_monetary,
-                                g = classes)
+  monetary_classes <-
+    Hmisc::cut2(x = basis_4_monetary,
+                g = classes)
   # 1 is lowest sales, while 4 is highest sales
   # (= low 1 to high 4)
 
@@ -188,38 +209,89 @@ t_calculate_RFM_model <- function
 
   #---------------------------------------------------------
 
-  cat("Calculate RFM Score ...\n")
+  cat("Calculating RFM Score   ...  ")
 
-  RFM_Score <-
+  # If missing values exist in a calculation a warning is
+  # issued. To avoid this the calculation is done only for
+  # complete cases.
+  # For this keys in a data.frame for RFM_Score are created
+  # and used to match the calculated values for complete
+  # cases back into the original data.frame.
+  # This data.frame is converted back to a vector (where we
+  # came from).
+
+  # print("make datasets")
+  d_temp_1 <- data.frame(
+    regency_values,
+    frequency_values,
+    monetary_values)
+  d_temp_1$keys <- 1:nrow(d_temp_1)
+
+  d_temp_2 <- d_temp_1
+  d_temp_2 <- d_temp_2[complete.cases(d_temp_2) , ]
+
+  #----------
+
+  # print("weighting")
+  d_temp_2$regency_values <-
+    weight$regency * d_temp_2$regency_values
+  d_temp_2$frequency_values <-
+    weight$frequency * d_temp_2$frequency_values
+  d_temp_2$monetary_values <-
+    weight$monetary * d_temp_2$monetary_values
+
+  #----------
+
+  # print("make rfm score")
+  d_temp_2$RFM_Score <-
     paste0(
-      as.character(regency_weight * as.numeric(regency_classes)),
-      as.character(frequency_weight * as.numeric(frequency_classes)),
-      as.character(monetary_weight * as.numeric(monetary_classes))
+      as.character(d_temp_2$regency_values),
+      as.character(d_temp_2$frequency_values),
+      as.character(d_temp_2$monetary_values)
   )
-  RFM_Score <- as.numeric(RFM_Score)
-  cat("Done.\n")
 
-  #---------------------------------------------------------
+  d_temp_2$RFM_Score <-
+    as.numeric(d_temp_2$RFM_Score)
 
-  cat("Calculate RFM Score rescaled ...\n")
+  #----------
 
-  RFM_Score_rescaled <- (RFM_Score - min(RFM_Score)) /
-    (max(RFM_Score) - min(RFM_Score))
+  # print("make rfm score rescaled")
+  # (na.rm not really need, just to be save)
+  RFM_Score_min <- min(d_temp_2$RFM_Score, na.rm = TRUE)
+  RFM_Score_max <- max(d_temp_2$RFM_Score, na.rm = TRUE)
+
+  d_temp_2$RFM_Score_rescaled <-
+    (d_temp_2$RFM_Score - RFM_Score_min) /
+    (RFM_Score_max - RFM_Score_min)
   # Tsipsis: Segmentation for Retailers,
   # Chapter 8: Data Mining Techniques for Retailers
   # p. 337f
-  # min(RFM_Score_rescaled)
-  # max(RFM_Score_rescaled)
+
+  #----------
+
+  # print("merge datasets")
+  # Enlarge the vector using missing values to the original
+  # length.
+  d_temp_3 <- merge(
+    x = d_temp_1,
+    y = d_temp_2,
+    by.x = "keys",
+    by.y = "keys",
+    all.x = TRUE,
+    all.y = TRUE)
+
+  #----------
+
+  # print("coerce dataset to vectors")
+  RFM_Score <- d_temp_3$RFM_Score
+  RFM_Score_rescaled <- d_temp_3$RFM_Score_rescaled
 
   cat("Done.\n")
 
   #---------------------------------------------------------
 
+  # print("create return object")
   RFM_Model <- list(
-    classes = list(
-      regency = regency_classes,
-      frequency = frequency_classes,
-      monetary = monetary_classes),
     boundaries = list(
       regency = regency_boundaries,
       frequency = frequency_boundaries,
