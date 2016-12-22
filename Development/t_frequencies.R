@@ -4,10 +4,6 @@ t_frequencies <- function(variable,
                           useNA = "always",
                           max_print = 100)
 {
-  cat("t_frequencies() ...\n")
-  # Sort has to come first.
-  # Otherwise abs_kum and rel_kum get sorted later and
-  # deliver wrong results.
   if (sort)
   {
     v_abs <- sort(table(variable, useNA = useNA))
@@ -45,17 +41,17 @@ t_frequencies <- function(variable,
     v_omitted_values <- nrow(v_result_table) - max_print
     v_result_table <- v_result_table[1:max_print , ]
     print(v_result_table)
-    cat(paste("\nPrinted only",
+    warning(paste("Printed only",
                   max_print,
                   "values, omitted",
                   v_omitted_values,
-                  "values!\n\n"))
+                  "values!"),
+            call. = FALSE)
   } else
   {
     print(v_result_table)
   }
 
-  cat("... t_frequencies()\n")
 
   invisible(v_result_table)
 }

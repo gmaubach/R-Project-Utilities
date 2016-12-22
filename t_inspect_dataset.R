@@ -2,7 +2,7 @@
 # Module        : t_inspect_dataset.R
 # Author        : Georg Maubach
 # Date          : 2016-08-15
-# Update        : 2016-12-21
+# Update        : 2016-12-22
 # Description   : Load dataset and print information on contents
 # Source System : R 3.3.0 (64 Bit)
 # Target System : R 3.3.0 (64 Bit)
@@ -13,7 +13,7 @@
 #--------1---------2---------3---------4---------5---------6---------7---------8
 
 t_module_name = "t_inspect_dataset"
-t_version = "2016-12-21"
+t_version = "2016-12-22"
 t_status = "released"
 
 cat(
@@ -50,27 +50,62 @@ t_inspect_dataset <- function(dataset) {
   #   (3.3.3 Recommended approach to inspecting data)
   #-----------------------------------------------------------------------------
 
-  cat("--------------------- [ t_inspect_dataset() ] ---------------------\n\n")
+  t_find_duplicates_in_variable <- function(variable)
+  {
+    v_is_na <- is.na(variable)
+    v_variable <- variable[!v_is_na]
+    v_values <- length(v_variable)
+    v_unique <- length(unique(v_variable))
+    v_duplicates <- v_values - v_unique
 
+    v_list <- list(
+      Values = v_values,
+      Unique = v_unique,
+      Duplicates = v_duplicates,
+      NAs        = sum(v_is_na))
+
+    invisible(v_list)
+  }
+
+
+  cat("---------- [ t_inspect_dataset() ] ----------\n\n")
   library(car)
   library(Hmisc)
 
-  cat('Check if superfluous header lines were loaded ---------------------\n\n')
+  cat('--- [ Check if superfluous header lines were loaded (head) ] ---\n\n')
   print(head(dataset))
 
-  cat('\n\nCheck if additional blank lines at the end were loaded --------\n\n')
+  cat('\n\n--- [ Check for additional blank lines at the end (tail) ] ---\n\n')
   print(tail(dataset))
 
-  cat('\n\nCheck a set of randomly selected rows -------------------------\n\n')
+  cat('\n\n--- [ Check a set of randomly selected rows (some) ] ---\n\n')
   print(car::some(dataset))
 
-  cat('\n\nFirst glance of the data --------------------------------------\n\n')
+  cat('\n\n--- [ First glance of the data (summary) ] ---\n\n')
   print(summary(dataset))
 
-  cat('\n\nData Overview -------------------------------------------------\n\n')
+  cat('\n\n--- [ Data Overview (describe) ] ---\n\n')
   print(Hmisc::describe(dataset))
 
-  cat("------------------------------ [ Done ] ---------------------------\n\n")
+  cat('\n\n--- [ Duplicate cases ] ---\n\n')
+
+  for (variable in colnames(dataset))
+  {
+    v_list <- t_find_duplicates_in_variable(
+      variable = dataset[, variable])
+    if (exists("d_duplicates"))
+    {
+      d_duplicates <- rbind(d_duplicates, v_list)
+    } else
+    {
+      d_duplicates <- as.data.frame(v_list)
+    }
+  }
+  v_list <- list(Variables = colnames(dataset))
+  d_duplicates <- cbind(v_list, d_duplicates)
+  print(d_duplicates)
+
+  cat("---------- [ Done ] ----------\n\n")
 }
 
 # [ Test Defintion ]------------------------------------------------------------

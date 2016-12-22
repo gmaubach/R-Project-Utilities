@@ -2,7 +2,7 @@
 # Module        : Conventions
 # Author        : Georg Maubach
 # Date          : 2016-06-07
-# Update        : 2016-08-15
+# Update        : 2016-12-22
 # Description   : Conventions in scripts
 # Source System : R 3.3.0 (64 Bit)
 # Target System : R 3.3.0 (64 Bit)
@@ -188,6 +188,8 @@
 # v_drop             : variables to drop
 # v_retain           : cases to keep
 # v_discard          : cases to drop
+# v_sort_variables   : sorting for variables
+# v_order            : sorting for cases
 
 # @GMA (2016-09-01)
 # Dates
