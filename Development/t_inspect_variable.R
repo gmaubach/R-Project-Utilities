@@ -58,4 +58,10 @@ t_inspect_variable <- function(variable,
   invisible(0)
 }
 
-
+t_inspect_variable <- function(variable)
+{
+  cat("f_inspect_variable() ...\n")
+  t_frequencies(variable, max_print = 20)
+  t_find_duplicates_in_variable(variable, print = TRUE)
+  cat("... f_inspect_variable()\n")
+}

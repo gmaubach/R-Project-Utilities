@@ -1,0 +1,855 @@
+--- [ Check variable names ] ---
+
+ [1] "Debitor"                    
+ [2] "Kundenname"                 
+ [3] "Ort"                        
+ [4] "Loeschvomerkung_Z"          
+ [5] "Loeschvormerkung_V"         
+ [6] "Auftragssperre_Z"           
+ [7] "Auftragssperre_V"           
+ [8] "Fakturasperre_Z"            
+ [9] "Fakturasperre_V"            
+[10] "Liefersperre_Z"             
+[11] "Liefersperre_V"             
+[12] "Text_Sperrgrund"            
+[13] "Kontengruppe"               
+[14] "Branche"                    
+[15] "Angelegt_am"                
+[16] "Verkaufsorganisation"       
+[17] "Vertriebsweg"               
+[18] "Handelsvertreter_Nr"        
+[19] "Handelsvertreter_Name"      
+[20] "Sparte"                     
+[21] "Land"                       
+[22] "Kundenname_2"               
+[23] "Kundenname_3"               
+[24] "PLZ"                        
+[25] "Region"                     
+[26] "Suchbegriff"                
+[27] "Strasse"                    
+[28] "Telefon_Nr_1"               
+[29] "Telefax_Nr_1"               
+[30] "Adresse"                    
+[31] "Umsatzsteuer_ID"            
+[32] "Branchenschluessel"         
+[33] "Angelegt_von"               
+[34] "Kundenschema"               
+[35] "Kundengruppe"               
+[36] "Kundenbezirk"               
+[37] "Preisgruppe"                
+[38] "Preisliste"                 
+[39] "Lieferprioritaet"           
+[40] "Verkaeufergruppe"           
+[41] "Verkaufsbuero"              
+[42] "Positionsvorschlag"         
+[43] "Packanweisung"              
+[44] "Zustellbesonderheit"        
+[45] "Beilagen_Lieferung"         
+[46] "Provisionsgruppe"           
+[47] "Mailing_Kennzeichen"        
+[48] "Betrieb"                    
+[49] "Hierarchiezuordnung"        
+[50] "Adressnummer"               
+[51] "E-Mail-Adresse"             
+[52] "Produktattribut_1"          
+[53] "Produktattribut_2"          
+[54] "Produktattribut_3"          
+[55] "Produktattribut_4"          
+[56] "Produktattribut_5"          
+[57] "Handelsvertreter_Anrede"    
+[58] "Handelsvertreter_Telefon_Nr"
+[59] "Handelsvertreter_Telefax_Nr"
+[60] "Handelsvertreter_Adresse_Nr"
+[61] "Handelsvertreter_E_Mail"    
+[62] "Vorsetzter_1"               
+[63] "Vorgesetzter_Name_1"        
+[64] "Vorgesetzter_2"             
+[65] "Vorgesetzter_Name_2"        
+[66] "Gebiet_Nr"                  
+[67] "Gebiet_Name"                
+[68] "Nielsenbezirk"              
+[69] "Geschaeftsform"             
+[70] "Geschaeftsform_Bezeichnung" 
+[71] "Anrede"                     
+[72] "Verkaufshinweis"            
+[73] "Status"                     
+
+
+--- [ Check if superfluous header lines were loaded (head) ] ---
+
+  Debitor                        Kundenname
+1 1009307 Hasir Gastronomie Leipziger Platz
+                     Ort Loeschvomerkung_Z
+1                 Berlin                NA
+  Loeschvormerkung_V Auftragssperre_Z Auftragssperre_V
+1                 NA             <NA>             <NA>
+  Fakturasperre_Z Fakturasperre_V Liefersperre_Z
+1            <NA>            <NA>             01
+  Liefersperre_V                 Text_Sperrgrund
+1           <NA>     Liefersperre: Zahlungsmoral
+  Kontengruppe Branche Angelegt_am Verkaufsorganisation
+1         Z101     151  21.12.2016                   99
+  Vertriebsweg Handelsvertreter_Nr
+1           10             H000804
+      Handelsvertreter_Name Sparte Land
+1 Daniele Marcello Bertelli      1   DE
+           Kundenname_2 Kundenname_3   PLZ Region
+1                  GmbH         <NA> 10999   <NA>
+  Suchbegriff                 Strasse  Telefon_Nr_1
+1        <NA>         Oranienstr. 177  030-61507080
+  Telefax_Nr_1 Adresse Umsatzsteuer_ID
+1 030-61507082  373433            <NA>
+   Branchenschluessel Angelegt_von Kundenschema
+1  GA-Sonstige Gastro      BUECHEL            Y
+  Kundengruppe Kundenbezirk Preisgruppe Preisliste
+1         <NA>         <NA>          NA         10
+  Lieferprioritaet Verkaeufergruppe Verkaufsbuero
+1                1               NA           804
+  Positionsvorschlag Packanweisung Zustellbesonderheit
+1                 NA            NA                  NA
+  Beilagen_Lieferung Provisionsgruppe
+1                 NA               10
+  Mailing_Kennzeichen Betrieb Hierarchiezuordnung
+1                  10      NA                   0
+  Adressnummer      E-Mail-Adresse Produktattribut_1
+1           NA       info@hasir.de                NA
+  Produktattribut_2 Produktattribut_3 Produktattribut_4
+1                NA                NA                NA
+  Produktattribut_5 Handelsvertreter_Anrede
+1                NA                    Herr
+  Handelsvertreter_Telefon_Nr
+1                0170-8252000
+  Handelsvertreter_Telefax_Nr
+1                        <NA>
+  Handelsvertreter_Adresse_Nr Handelsvertreter_E_Mail
+1                       30228                    <NA>
+  Vorsetzter_1 Vorgesetzter_Name_1 Vorgesetzter_2
+1         V006                WW 6           V900
+  Vorgesetzter_Name_2 Gebiet_Nr
+1           WW INTERN      G804
+                Gebiet_Name Nielsenbezirk Geschaeftsform
+1 Daniele Marcello Bertelli            NA             NA
+  Geschaeftsform_Bezeichnung Anrede Verkaufshinweis
+1                         NA   <NA>            <NA>
+  Status
+1     NA
+ [ reached getOption("max.print") -- omitted 5 rows ]
+
+
+--- [ Check for additional blank lines at the end (tail) ] ---
+
+      Debitor                Kundenname      Ort
+58100    5001 IWL-Int.Weinlogistik GmbH Tornesch
+      Loeschvomerkung_Z Loeschvormerkung_V
+58100                NA                 NA
+      Auftragssperre_Z Auftragssperre_V Fakturasperre_Z
+58100             <NA>             <NA>            <NA>
+      Fakturasperre_V Liefersperre_Z Liefersperre_V
+58100            <NA>           <NA>           <NA>
+      Text_Sperrgrund Kontengruppe Branche Angelegt_am
+58100            <NA>         Z105      NA  02.09.2009
+      Verkaufsorganisation Vertriebsweg
+58100                    5           70
+      Handelsvertreter_Nr Handelsvertreter_Name Sparte
+58100                <NA>                  <NA>      1
+      Land           Kundenname_2 Kundenname_3   PLZ
+58100   DE                c/o DWC         <NA> 25436
+      Region Suchbegriff              Strasse
+58100     01        <NA> Hamburger Str. 14-20
+      Telefon_Nr_1 Telefax_Nr_1 Adresse Umsatzsteuer_ID
+58100         <NA>         <NA>   24639            <NA>
+      Branchenschluessel Angelegt_von Kundenschema
+58100               <NA>    WIERDEIER            Y
+      Kundengruppe Kundenbezirk Preisgruppe Preisliste
+58100         <NA>         <NA>          NA         10
+      Lieferprioritaet Verkaeufergruppe Verkaufsbuero
+58100                1               NA            NA
+      Positionsvorschlag Packanweisung
+58100                 NA            NA
+      Zustellbesonderheit Beilagen_Lieferung
+58100                  NA                 NA
+      Provisionsgruppe Mailing_Kennzeichen Betrieb
+58100               NA                   1    5001
+      Hierarchiezuordnung Adressnummer E-Mail-Adresse
+58100                   0           NA           <NA>
+      Produktattribut_1 Produktattribut_2
+58100                NA                NA
+      Produktattribut_3 Produktattribut_4
+58100                NA                NA
+      Produktattribut_5 Handelsvertreter_Anrede
+58100                NA                    <NA>
+      Handelsvertreter_Telefon_Nr
+58100                        <NA>
+      Handelsvertreter_Telefax_Nr
+58100                        <NA>
+      Handelsvertreter_Adresse_Nr
+58100                          NA
+      Handelsvertreter_E_Mail Vorsetzter_1
+58100                    <NA>         <NA>
+      Vorgesetzter_Name_1 Vorgesetzter_2
+58100                <NA>           <NA>
+      Vorgesetzter_Name_2 Gebiet_Nr Gebiet_Name
+58100                <NA>      <NA>        <NA>
+      Nielsenbezirk Geschaeftsform
+58100            NA             NA
+      Geschaeftsform_Bezeichnung Anrede Verkaufshinweis
+58100                         NA   <NA>            <NA>
+      Status
+58100     NA
+ [ reached getOption("max.print") -- omitted 5 rows ]
+
+
+--- [ Check a set of randomly selected rows (some) ] ---
+
+      Debitor                    Kundenname
+6285  1004544    Spahn Scotch Warehouse GbR
+                      Ort Loeschvomerkung_Z
+6285              Dieburg                NA
+      Loeschvormerkung_V Auftragssperre_Z
+6285                  NA             <NA>
+      Auftragssperre_V Fakturasperre_Z Fakturasperre_V
+6285              <NA>            <NA>            <NA>
+      Liefersperre_Z Liefersperre_V
+6285            <NA>           <NA>
+                                                   Text_Sperrgrund
+6285                                                          <NA>
+      Kontengruppe Branche Angelegt_am
+6285          Z101     231  25.04.2014
+      Verkaufsorganisation Vertriebsweg
+6285                    99           20
+      Handelsvertreter_Nr        Handelsvertreter_Name
+6285              H000061            Beesdo & Cap GmbH
+      Sparte Land                   Kundenname_2
+6285       1   DE Holger Spahn und Manuela Spahn
+           Kundenname_3   PLZ Region Suchbegriff
+6285               <NA> 64807   <NA>        <NA>
+                      Strasse  Telefon_Nr_1 Telefax_Nr_1
+6285  Alt Mainzer Landstr. 27 06071-9899021         <NA>
+      Adresse Umsatzsteuer_ID  Branchenschluessel
+6285   327383            <NA> FH-Facheinzelhandel
+      Angelegt_von Kundenschema Kundengruppe
+6285       BUECHEL            Y         <NA>
+      Kundenbezirk Preisgruppe Preisliste
+6285          <NA>          NA         20
+      Lieferprioritaet Verkaeufergruppe Verkaufsbuero
+6285                 1               NA            61
+      Positionsvorschlag Packanweisung
+6285                  NA            NA
+      Zustellbesonderheit Beilagen_Lieferung
+6285                   NA                 NA
+      Provisionsgruppe Mailing_Kennzeichen Betrieb
+6285                20                  20      NA
+      Hierarchiezuordnung Adressnummer
+6285                    0           NA
+                    E-Mail-Adresse Produktattribut_1
+6285       info@scotchwarehouse.de                NA
+      Produktattribut_2 Produktattribut_3
+6285                 NA                NA
+      Produktattribut_4 Produktattribut_5
+6285                 NA                NA
+      Handelsvertreter_Anrede
+6285                     <NA>
+      Handelsvertreter_Telefon_Nr
+6285                09342-9346892
+      Handelsvertreter_Telefax_Nr
+6285                09342-9347683
+      Handelsvertreter_Adresse_Nr
+6285                       323941
+       Handelsvertreter_E_Mail Vorsetzter_1
+6285        raik@beesdo-cap.de         V002
+      Vorgesetzter_Name_1 Vorgesetzter_2
+6285                 WW 2           V900
+      Vorgesetzter_Name_2 Gebiet_Nr
+6285            WW INTERN      G061
+                       Gebiet_Name Nielsenbezirk
+6285                  Beesdo & Cap            NA
+      Geschaeftsform Geschaeftsform_Bezeichnung Anrede
+6285              NA                         NA   <NA>
+      Verkaufshinweis Status
+6285             <NA>     NA
+ [ reached getOption("max.print") -- omitted 9 rows ]
+
+
+--- [ First glance of the data (summary) ] ---
+
+   Debitor           Kundenname       
+ Length:58105       Length:58105      
+     Ort            Loeschvomerkung_Z Loeschvormerkung_V
+ Length:58105       Mode:logical      Mode:logical      
+ Auftragssperre_Z   Auftragssperre_V  
+ Length:58105       Length:58105      
+ Fakturasperre_Z    Fakturasperre_V   
+ Length:58105       Length:58105      
+ Liefersperre_Z     Liefersperre_V    
+ Length:58105       Length:58105      
+ Text_Sperrgrund    Kontengruppe          Branche    
+ Length:58105       Length:58105       Min.   :111   
+ Angelegt_am        Verkaufsorganisation  Vertriebsweg
+ Length:58105       Min.   :  1          Min.   :10   
+ Handelsvertreter_Nr Handelsvertreter_Name     Sparte 
+ Length:58105        Length:58105          Min.   :1  
+     Land           Kundenname_2      
+ Length:58105       Length:58105      
+ Kundenname_3           PLZ           
+ Length:58105       Length:58105      
+    Region          Suchbegriff       
+ Length:58105       Length:58105      
+   Strasse          Telefon_Nr_1      
+ Length:58105       Length:58105      
+ Telefax_Nr_1          Adresse       Umsatzsteuer_ID   
+ Length:58105       Min.   : 24627   Length:58105      
+ Branchenschluessel Angelegt_von      
+ Length:58105       Length:58105      
+ Kundenschema       Kundengruppe      
+ Length:58105       Length:58105      
+ Kundenbezirk        Preisgruppe     Preisliste       
+ Length:58105       Min.   :1       Length:58105      
+ Lieferprioritaet Verkaeufergruppe Verkaufsbuero 
+ Min.   :0.00     Mode:logical     Min.   :  1   
+ Positionsvorschlag Packanweisung   Zustellbesonderheit
+ Mode:logical       Min.   :1       Min.   :2          
+ Beilagen_Lieferung Provisionsgruppe Mailing_Kennzeichen
+ Min.   :2          Min.   :10       Min.   : 1         
+    Betrieb      Hierarchiezuordnung Adressnummer  
+ Min.   :1001    Min.   :0           Mode:logical  
+ E-Mail-Adresse     Produktattribut_1 Produktattribut_2
+ Length:58105       Mode:logical      Mode:logical     
+ Produktattribut_3 Produktattribut_4 Produktattribut_5
+ Mode:logical      Mode:logical      Mode:logical     
+ Handelsvertreter_Anrede Handelsvertreter_Telefon_Nr
+ Length:58105            Length:58105               
+ Handelsvertreter_Telefax_Nr Handelsvertreter_Adresse_Nr
+ Length:58105                Min.   : 30155             
+ Handelsvertreter_E_Mail Vorsetzter_1      
+ Length:58105            Length:58105      
+ Vorgesetzter_Name_1 Vorgesetzter_2    
+ Length:58105        Length:58105      
+ Vorgesetzter_Name_2  Gebiet_Nr        
+ Length:58105        Length:58105      
+ Gebiet_Name        Nielsenbezirk   Geschaeftsform
+ Length:58105       Min.   : 1      Mode:logical  
+ Geschaeftsform_Bezeichnung    Anrede         
+ Mode:logical               Length:58105      
+ Verkaufshinweis     Status       
+ Length:58105       Mode:logical  
+ [ reached getOption("max.print") -- omitted 6 rows ]
+
+
+--- [ Data Overview (describe) ] ---
+
+dataset 
+
+ 73  Variables      58105  Observations
+---------------------------------------------------------
+Debitor 
+      n missing  unique 
+  58105       0   57834 
+
+lowest : 1000006 1000007 1000016 1000018 1000021
+highest: L0530   L0531   L0532   L0533   L0534   
+---------------------------------------------------------
+Kundenname 
+      n missing  unique 
+  58105       0   47415 
+
+lowest : 'Deins' Restaurant             -M- Steakhouse                 -SB-Warenhaus GmbH Zweite real -Wine/Spirits CM real          "Clubhaus" Gastronomie WGC    
+highest: Zwirner's Restaurant           Zwölfgrad Sekt & Wein          Zwölfgrad Weinhandlung         Zwutschkerl Alm                Zyrafina Mehmeti               
+---------------------------------------------------------
+Ort 
+      n missing  unique 
+  58103       2    9284 
+
+lowest : .               1 Sumy          22Frankfurt     29180           3 NL Twickenham
+highest: Zwingenberg     ZWINGENBERG     ZWINT-SCHÖNAU   Zwochau         Zwönitz         
+---------------------------------------------------------
+Auftragssperre_Z 
+      n missing  unique 
+   3539   54566       6 
+
+           01   02 03  05  08 ZA
+Frequency 389 2179 89 110 767  5
+%          11   62  3   3  22  0
+---------------------------------------------------------
+Auftragssperre_V 
+      n missing  unique 
+   9581   48524       6 
+
+          01   02 03 05 08 ZA
+Frequency  6 9441 10 49 67  8
+%          0   99  0  1  1  0
+---------------------------------------------------------
+Fakturasperre_Z 
+      n missing  unique   value 
+      1   58104       1      Z0 
+---------------------------------------------------------
+Fakturasperre_V 
+      n missing  unique   value 
+      1   58104       1      Z0 
+---------------------------------------------------------
+Liefersperre_Z 
+      n missing  unique 
+   7564   50541      12 
+
+            01  02   03  04 05  06 07 10 12 RL ZD  ZV
+Frequency 2176 625 3025 334 26 408 10 32 81  7  8 832
+%           29   8   40   4  0   5  0  0  1  0  0  11
+---------------------------------------------------------
+Liefersperre_V 
+      n missing  unique 
+  12744   45361      11 
+
+           01 02    03 04 05  06 07 10 12 ZD  ZV
+Frequency 787 97 10915  9 10 137  7  9  8  5 760
+%           6  1    86  0  0   1  0  0  0  0   6
+---------------------------------------------------------
+Text_Sperrgrund 
+      n missing  unique 
+  31624   26481     242 
+
+lowest : Auftragssperre: Adresse gelöscht                                                                Auftragssperre: Adresse gelöscht , Auftragssperre: Inhaberwechsel , VKORG: 0099 , VTWEG: 10     Auftragssperre: Adresse gelöscht , Auftragssperre: Inhaberwechsel , VKORG: 0099 , VTWEG: 30     Auftragssperre: Adresse gelöscht , Liefersperre: Aktuelle CR/KL-Prüfu                           Auftragssperre: Adresse gelöscht , Liefersperre: Aktuelle CR/KL-Prüfu , VKORG: 0099 , VTWEG: 10
+highest: Liefersperre: Zahlungsmoral , VKORG: 0099 , VTWEG: 20                                           Liefersperre: Zahlungsmoral , VKORG: 0099 , VTWEG: 30                                           Liefersperre: Zahlungsmoral , VKORG: 0099 , VTWEG: 40                                           Liefersperre: Zahlungsmoral , VKORG: 0099 , VTWEG: 50                                           Liefersperre: Zahlungsmoral , VKORG: 0099 , VTWEG: 70                                           
+---------------------------------------------------------
+Kontengruppe 
+      n missing  unique 
+  58105       0      10 
+
+           Z101 Z102 Z104 Z105 Z106 Z107 Z108 Z109 Z110
+Frequency 46699    2 6564   30  825 3263  564   43  113
+%            80    0   11    0    1    6    1    0    0
+          Z111
+Frequency    2
+%            0
+---------------------------------------------------------
+Branche 
+      n missing  unique    Info    Mean     .05     .10 
+  53594    4511      48    0.98   267.9     111     111 
+    .25     .50     .75     .90     .95 
+    151     231     411     421     421 
+
+lowest : 111 121 122 131 132
+highest: 821 822 911 991 999 
+---------------------------------------------------------
+Angelegt_am 
+      n missing  unique 
+  58105       0    1168 
+
+lowest : 01.02.2013 01.02.2016 01.03.2012 01.03.2013 01.03.2016
+highest: 31.08.2016 31.10.2012 31.10.2013 31.10.2014 31.10.2016 
+---------------------------------------------------------
+Verkaufsorganisation 
+      n missing  unique    Info    Mean 
+  58105       0       8     0.1    95.6 
+
+           1  2    3   4  5    99 307 308
+Frequency 36 18 1651 343 39 56006   6   6
+%          0  0    3   1  0    96   0   0
+---------------------------------------------------------
+Vertriebsweg 
+      n missing  unique    Info    Mean 
+  58105       0       9    0.91   24.15 
+
+             10    20   30    40  50   70  80  91 92
+Frequency 23765 12107 5839 12948 824 2248 191 126 57
+%            41    21   10    22   1    4   0   0  0
+---------------------------------------------------------
+Handelsvertreter_Nr 
+      n missing  unique 
+  44787   13318      92 
+
+lowest : H000001 H000002 H000005 H000006 H000011
+highest: H000815 H000888 H000900 H000940 H000999 
+---------------------------------------------------------
+Handelsvertreter_Name 
+      n missing  unique 
+  44787   13318      87 
+
+lowest : Alberto Figuccio          Andreas Wieruszewski      Anke Scholz               Anton Burgis & Sohn e.K.  Anton Schmieder          
+highest: Wein Wolf Verwaltungs KG  WeinDoch! e.K.            WEINEXX                   Weinfachagentur Spielmann Wöllisch GmbH & Co. KG    
+---------------------------------------------------------
+Sparte 
+      n missing  unique    Info    Mean 
+  58105       0       1       0       1 
+---------------------------------------------------------
+Land 
+      n missing  unique 
+  58105       0      53 
+
+lowest : AE AM AT AU BE, highest: TW UA US YU ZA 
+---------------------------------------------------------
+Kundenname_2 
+      n missing  unique 
+  40790   17315   32402 
+
+lowest : - AUSSENLAGER BONN -            - Berater -                     - Büro Freiburg -               - Casino -                      - Clubrestaurant-              
+highest: Zwingel Weisendorf GmbH         Zwinkmann                       Zwylle-Gaststättenbetriebs GmbH Zylinder Feinkost e. K.         ZYX Bar- und Gastronomie GmbH   
+---------------------------------------------------------
+Kundenname_3 
+      n missing  unique 
+   6970   51135    5540 
+
+lowest : 'Vinothek Frau Kruger'         - 26548 Norderney              - Bereich -real,-              - Bereich Metro Cash & Carry - - Buchhaltung -               
+highest: Zweigniederlassung Schüttorf   Zweigniederlassung West        Zwenkau GmbH                   Zwenkau mbH                    Zwischengeschoss               
+---------------------------------------------------------
+PLZ 
+      n missing  unique 
+  58102       3    7051 
+
+lowest : .        .....    00-496   00-633   00-971  
+highest: TW1      V4T 2E4  W1T 1DX  W1U7GB   WC1B 5BJ 
+---------------------------------------------------------
+Region 
+      n missing  unique 
+     37   58068       8 
+
+          01 02 05 08 11 BK NK W
+Frequency 16  1 14  1  1  2  1 1
+%         43  3 38  3  3  5  3 3
+---------------------------------------------------------
+Suchbegriff 
+      n missing  unique 
+     89   58016      56 
+
+lowest : 02642 9939 ALTE GRAFS ANTINORI   AUTOHANDEL BERTRAND  
+highest: TORRES     VELENOSI   VIER JAHRE WERNO      ZAHEL GMBH 
+---------------------------------------------------------
+Strasse 
+      n missing  unique 
+  58072      33   46536 
+
+lowest : -                               & Specialty AG                  (2401) Gebietsnummer 8362000080 .                               04-10                          
+highest: Zwischen Wasser 13              Zwischenbrücken 7               Zwölf-Apostel-Platz 16          Zypressenstraße 39              Zypressenweg 4                  
+---------------------------------------------------------
+Telefon_Nr_1 
+      n missing  unique 
+  49408    8697   44982 
+
+lowest : -                ()49 0172 20 ... + 49 (0)89-60... + 49 151/1491... +(1)301-380-1853
+highest: 92490            9371/66822-0     937715           948-694303       95789            
+---------------------------------------------------------
+Telefax_Nr_1 
+      n missing  unique 
+  33491   24614   30363 
+
+lowest : + 49 (0)89-60734568 + 49(0)7222/935507  +(1)914-6408310     +32 14651328        +32 36646753       
+highest: KEIN FAX VORHANDEN  KUNDE HAT KEIN FAX  NICHT EXISTENT      NICHT VORHANDEN     NOCH NICHT          
+---------------------------------------------------------
+Adresse 
+      n missing  unique    Info    Mean     .05     .10 
+  58105       0   57834       1  126479   33250   36151 
+    .25     .50     .75     .90     .95 
+  44862   59383  286278  330730  352121 
+
+lowest :  24627  24628  24629  24630  24631
+highest: 373450 373469 373470 373475 373476 
+---------------------------------------------------------
+Umsatzsteuer_ID 
+      n missing  unique 
+   2836   55269    2683 
+
+lowest : ATU14418209  ATU14464300  ATU14662202  ATU15004108  ATU15516500 
+highest: SI83640665   SK2020046050 SK2022033453 SK2022072646 SK2023064912 
+---------------------------------------------------------
+Branchenschluessel 
+      n missing  unique 
+  53594    4511      48 
+
+lowest : EV-Endverbraucher   EX-Auslandskunde    FH-Bierverleger     FH-Facheinzelhandel FH-Feinkost        
+highest: LEH-WH-SB Warenhaus SO-EK-Kontor        SO-Personal         SO-Personal extern  SO-Spedition        
+---------------------------------------------------------
+Angelegt_von 
+      n missing  unique 
+  58105       0      32 
+
+lowest : AIT_HAMOU BERG      BOEHNING  BOETTCHER BOTTEK   
+highest: SCHWAB    SHALJYAN  THIEBES   WIERDEIER WILLEMS   
+---------------------------------------------------------
+Kundenschema 
+      n missing  unique 
+  55265    2840       3 
+
+1 (1, 0%), X (1, 0%), Y (55263, 100%) 
+---------------------------------------------------------
+Kundengruppe 
+      n missing  unique   value 
+     48   58057       1      ZT 
+---------------------------------------------------------
+Kundenbezirk 
+      n missing  unique   value 
+      1   58104       1  DE0004 
+---------------------------------------------------------
+Preisgruppe 
+      n missing  unique    Info    Mean 
+   3503   54602       1       0       1 
+---------------------------------------------------------
+Preisliste 
+      n missing  unique 
+  46820   11285      21 
+
+lowest : 01 02 10 20 21, highest: 96 97 98 A0 BV 
+---------------------------------------------------------
+Lieferprioritaet 
+      n missing  unique    Info    Mean 
+  58105       0       3    0.23  0.9207 
+
+0 (4721, 8%), 1 (53270, 92%), 2 (114, 0%) 
+---------------------------------------------------------
+Verkaufsbuero 
+      n missing  unique    Info    Mean     .05     .10 
+  48168    9937      90       1   314.8       6      12 
+    .25     .50     .75     .90     .95 
+     36     146     702     802     900 
+
+lowest :   1   2   5   6  11
+highest: 814 815 900 930 940 
+---------------------------------------------------------
+Packanweisung 
+      n missing  unique    Info    Mean 
+    118   57987       3    0.63   1.314 
+
+1 (83, 70%), 2 (33, 28%), 3 (2, 2%) 
+---------------------------------------------------------
+Zustellbesonderheit 
+      n missing  unique    Info    Mean 
+   1270   56835       3    0.09   2.971 
+
+2 (39, 3%), 3 (1230, 97%), 5 (1, 0%) 
+---------------------------------------------------------
+Beilagen_Lieferung 
+      n missing  unique    Info    Mean 
+    191   57914       3    0.44   2.843 
+
+2 (32, 17%), 3 (157, 82%), 4 (2, 1%) 
+---------------------------------------------------------
+Provisionsgruppe 
+      n missing  unique    Info    Mean     .05     .10 
+  47457   10648      17    0.87   20.64      10      10 
+    .25     .50     .75     .90     .95 
+     10      20      30      40      40 
+
+             10   20  21  22   30  31  32   40   50 52
+Frequency 23113 9647 138 126 4434 489 225 7084 2055  7
+%            49   20   0   0    9   1   0   15    4  0
+          53 54 55 57 58 60 64
+Frequency  3 38 17  3  3 71  4
+%          0  0  0  0  0  0  0
+---------------------------------------------------------
+Mailing_Kennzeichen 
+      n missing  unique    Info    Mean     .05     .10 
+  56204    1901      14    0.85   10.17       1       1 
+    .25     .50     .75     .90     .95 
+      1       1      11      40      40 
+
+              1 2    10   11 18 19   20  21 28 29   30
+Frequency 28653 1 13221 1167  5 33 4578 974  1 11 1708
+%            51 0    24    2  0  0    8   2  0  0    3
+          31   40 41
+Frequency 81 5719 52
+%          0   10  0
+---------------------------------------------------------
+Betrieb 
+      n missing  unique    Info    Mean     .05     .10 
+     30   58075      22    0.98    5718    1047    1911 
+    .25     .50     .75     .90     .95 
+   3027    6051    8851    9101    9101 
+
+lowest : 1001 1002 1101 2001 2002
+highest: 7101 8001 8002 8101 9101 
+---------------------------------------------------------
+Hierarchiezuordnung 
+      n missing  unique    Info    Mean 
+  58105       0       1       0       0 
+---------------------------------------------------------
+E-Mail-Adresse 
+      n missing  unique 
+  18041   40064   17111 
+
+lowest : 01727334646@vodafone.de     022536872@t-online.de       07119898980@t-online.de     08920239470@t-online.de     1@niki.de                  
+highest: zurlinde@isselhorst.gtl.de  zusamzell@spaetzlewirtin.de zweibruecken@gant.de        zwicker-bleialf@t-online.de zwinkmann.nord@edeka.de     
+---------------------------------------------------------
+Handelsvertreter_Anrede 
+      n missing  unique 
+  36033   22072       3 
+
+Firma (5282, 15%), Frau (7890, 22%) 
+Herr (22861, 63%) 
+---------------------------------------------------------
+Handelsvertreter_Telefon_Nr 
+      n missing  unique 
+  44775   13330      84 
+
+lowest : 0151-11701503 0151-15173363 0151-15531896 0151-52814727 0160-93848548
+highest: 089-99149938  0911-5199890  09342-22030   09342-9346892 09375-92880   
+---------------------------------------------------------
+Handelsvertreter_Telefax_Nr 
+      n missing  unique 
+  38371   19734      57 
+
+lowest : 0211-4983806  02151-500421  02203-990272  02205-899019  0221-96446720
+highest: 089-99149939  0911-51998910 09342-22019   09342-9347683 09375-928811  
+---------------------------------------------------------
+Handelsvertreter_Adresse_Nr 
+      n missing  unique    Info    Mean     .05     .10 
+  44787   13318      92       1   89217   30157   30160 
+    .25     .50     .75     .90     .95 
+  30171   30209   30228  334245  354708 
+
+lowest :  30155  30156  30157  30158  30159
+highest: 361721 361724 366199 368039 369598 
+---------------------------------------------------------
+Handelsvertreter_E_Mail 
+      n missing  unique 
+  13919   44186      38 
+
+lowest : a.scholz@weinwolf.de        alberto.figuccio@online.de  b.stollstein@googlemail.com bru785@aol.com              c.dietrich@weinwolf.de     
+highest: philipp.marxen@web.de       raik@beesdo-cap.de          sc-perri@t-online.de        scperri@t-online.de         t.frey@dasweinteam.de       
+---------------------------------------------------------
+Vorsetzter_1 
+      n missing  unique 
+  44769   13336      11 
+
+          V001 V002 V003 V004 V005 V006 V007 V102 V201
+Frequency 7671 9505  871 4063 5400 2286 2617 3855    2
+%           17   21    2    9   12    5    6    9    0
+          V401 V900
+Frequency    2 8497
+%            0   19
+---------------------------------------------------------
+Vorgesetzter_Name_1 
+      n missing  unique 
+  44769   13336      11 
+
+          Gebrüder Ziegler GmbH  LEH Perri WW 1 WW 2
+Frequency                     2 3855     2 7671 9505
+%                             0    9     0   17   21
+          WW 3 WW 4 WW 5 WW 6 WW 7 WW INTERN
+Frequency  871 4063 5400 2286 2617      8497
+%            2    9   12    5    6        19
+---------------------------------------------------------
+Vorgesetzter_2 
+      n missing  unique 
+   8321   49784      15 
+
+          V001 V002 V003 V004 V005 V006 V007 V201 V202
+Frequency    2    8    2    1    3    1  245 4144   23
+%            0    0    0    0    0    0    3   50    0
+          V402 V403 V404 V405 V900 V901
+Frequency  265   34   20    4 3393  176
+%            3    0    0    0   41    2
+---------------------------------------------------------
+Vorgesetzter_Name_2 
+      n missing  unique 
+   8321   49784      15 
+
+          Alain Langlois Giovanni Gargiulo
+Frequency            265                23
+%                      3                 0
+          Jean-Marie Reutter Matthias Mormann
+Frequency                176                4
+%                          2                0
+          Maximilian Kirchner Perri Ralf Henseleit WW 1
+Frequency                  20  4144             34    2
+%                           0    50              0    0
+          WW 2 WW 3 WW 4 WW 5 WW 6 WW 7 WW INTERN
+Frequency    8    2    1    3    1  245      3393
+%            0    0    0    0    0    3        41
+---------------------------------------------------------
+Gebiet_Nr 
+      n missing  unique 
+  44792   13313     113 
+
+lowest : G001 G002 G005 G006 G011
+highest: G815 G888 G900 G940 G999 
+---------------------------------------------------------
+Gebiet_Name 
+      n missing  unique 
+  44792   13313      93 
+
+lowest : Alberto Figuccio            Andreas Wieruszewski        Anke Scholz                 Anton Burgis & Sohn e.K.    Anton Schmieder            
+highest: Wein Wolf Import GmbH & Co. Wein Wolf Verwaltungs KG    WEINEXX                     Weinfachagentur Spielmann   Wöllisch GmbH & Co. KG      
+---------------------------------------------------------
+Nielsenbezirk 
+      n missing  unique    Info    Mean 
+    127   57978       4     0.8   8.016 
+
+1 (5, 4%), 2 (38, 30%), 11 (71, 56%) 
+12 (13, 10%) 
+---------------------------------------------------------
+Anrede 
+      n missing  unique 
+   7004   51101       4 
+
+Firma (93, 1%), Frau (1626, 23%) 
+Herr (5283, 75%), Herr und Frau (2, 0%) 
+---------------------------------------------------------
+Verkaufshinweis 
+      n missing  unique 
+   5127   52978    3124 
+
+lowest : - 10%                                             - 15%                                             - 5 %                                             - 5%                                              - NUR die angegebenen Jahrgänge liefern          
+highest: ZV ruht lt. RA 23.1.93                            ZV ruht lt. RA 25.01.95                           ZV ruht lt. RA 27.09.93                           ZWISCHENLAGER SBW HATTERSHEIM BIS 30.08.11 !!! RH ZWISCHENLAGER SBW WIESBADEN BIS 27.02.12 !!! RH   
+---------------------------------------------------------
+
+Variables with all observations missing:
+
+ [1] Loeschvomerkung_Z         
+ [2] Loeschvormerkung_V        
+ [3] Verkaeufergruppe          
+ [4] Positionsvorschlag        
+ [5] Adressnummer              
+ [6] Produktattribut_1         
+ [7] Produktattribut_2         
+ [8] Produktattribut_3         
+ [9] Produktattribut_4         
+[10] Produktattribut_5         
+[11] Geschaeftsform            
+[12] Geschaeftsform_Bezeichnung
+[13] Status                    
+
+
+--- [ Duplicate cases ] ---
+
+                     Variables Values Unique Duplicates
+1                      Debitor  58105  57834        271
+2                   Kundenname  58105  47415      10690
+3                          Ort  58103   9284      48819
+4            Loeschvomerkung_Z      0      0          0
+5           Loeschvormerkung_V      0      0          0
+6             Auftragssperre_Z   3539      6       3533
+7             Auftragssperre_V   9581      6       9575
+8              Fakturasperre_Z      1      1          0
+9              Fakturasperre_V      1      1          0
+10              Liefersperre_Z   7564     12       7552
+11              Liefersperre_V  12744     11      12733
+12             Text_Sperrgrund  31624    242      31382
+13                Kontengruppe  58105     10      58095
+14                     Branche  53594     48      53546
+15                 Angelegt_am  58105   1168      56937
+16        Verkaufsorganisation  58105      8      58097
+17                Vertriebsweg  58105      9      58096
+18         Handelsvertreter_Nr  44787     92      44695
+19       Handelsvertreter_Name  44787     87      44700
+20                      Sparte  58105      1      58104
+     NAs
+1      0
+2      0
+3      2
+4  58105
+5  58105
+6  54566
+7  48524
+8  58104
+9  58104
+10 50541
+11 45361
+12 26481
+13     0
+14  4511
+15     0
+16     0
+17     0
+18 13318
+19 13318
+20     0
+ [ reached getOption("max.print") -- omitted 53 rows ]
+---------- [ End of file ] ----------
+

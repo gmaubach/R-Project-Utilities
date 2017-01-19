@@ -93,7 +93,7 @@
 #  - keep the environment tab of R Studio neat and clean
 # c = constants
 # d = datasets
-# m = meta data
+# m = meta data, master data
 # p = procedure
 # s = customer specific code (confidential, copyright reserved)
 # t = toolbox objects, e. g. functions
@@ -189,7 +189,8 @@
 # v_retain           : cases to keep
 # v_discard          : cases to drop
 # v_sort_variables   : sorting for variables
-# v_order            : sorting for cases
+# @ GMA 2017-01-12
+# v_sort_cases       : sorting for cases
 
 # @GMA (2016-09-01)
 # Dates

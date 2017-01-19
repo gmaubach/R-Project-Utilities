@@ -156,44 +156,13 @@ t_setup_project <- function() {
     present       = file.path(c_project_dir, present),
     modules       = file.path(c_project_dir, modules),
     results       = file.path(c_project_dir, results),
-    graphics     = file.path(c_project_dir, graphics),
+    graphic       = file.path(c_project_dir, graphics),
     tables        = file.path(c_project_dir, tables),
     paper         = file.path(c_project_dir, paper),
     slides        = file.path(c_project_dir, slides),
     web           = file.path(c_project_dir, web),
     temp          = file.path(c_project_dir, temp)
     )
-
-  c_path          <- list(
-    project       = c_project_dir,
-    documentation = file.path(c_project_dir, documentation),
-    fundamentals  = file.path(c_project_dir, fundamentals),
-    data          = list(
-      dir           = file.path(c_project_dir, data),
-      input         = file.path(c_project_dir, input),
-      master        = file.path(c_project_dir, master),
-      output        = file.path(c_project_dir, output),
-      export        = file.path(c_project_dir, export),
-      raw           = file.path(c_project_dir, raw) ),
-    program       = list(
-      dir           = file.path(c_project_dir, program),
-      gather        = file.path(c_project_dir, gather),
-      import        = file.path(c_project_dir, import),
-      clean         = file.path(c_project_dir, clean),
-      prepare       = file.path(c_project_dir, prepare),
-      merge         = file.path(c_project_dir, merge),
-      analyse       = file.path(c_project_dir, analyse),
-      present       = file.path(c_project_dir, present),
-      modules       = file.path(c_project_dir, modules) ),
-    results       = list(
-      dir           = file.path(c_project_dir, results),
-      graphics       = file.path(c_project_dir, graphics),
-      tables        = file.path(c_project_dir, tables),
-      paper         = file.path(c_project_dir, paper),
-      slides        = file.path(c_project_dir, slides),
-      web           = file.path(c_project_dir, web) ),
-    temp          = file.path(c_project_dir, temp)
-  )
 
   # Create sub directories if they are not there
   cat("-------------------------------------------------------------\n")
@@ -218,7 +187,7 @@ t_setup_project <- function() {
   cat("Saving project config file ...\n")
   v_file_config <- file.path(c_path_full$program,
                              "project_config.RData")
-  save(list = c("c_path_full", "c_path_relative", "c_path"),
+  save(list = c("c_path_full", "c_path_relative"),
        file = v_file_config
   )
   cat("File ", v_file_config, " created!\n")

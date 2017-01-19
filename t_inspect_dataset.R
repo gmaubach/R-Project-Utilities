@@ -1,54 +1,109 @@
-#-------------------------------------------------------------------------------
-# Module        : t_inspect_dataset.R
-# Author        : Georg Maubach
-# Date          : 2016-08-15
-# Update        : 2016-12-22
-# Description   : Load dataset and print information on contents
-# Source System : R 3.3.0 (64 Bit)
-# Target System : R 3.3.0 (64 Bit)
+#-----------------------------------------------------------
+# Organisation: Wein Wolf Import GmbH & Co. Verwaltungs KG
+# Department  : Sales
+# Author      : Georg Maubach
+# Contributors: n/a
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-#--------1---------2---------3---------4---------5---------6---------7---------8
+# Copyright (C) 2016,
+#     Wein Wolf Import GmbH & Co. Verwaltungs KG
+#
+# This program is free software; you can redistribute it
+# and/or modify it under the terms of the GNU General Public
+# License Version 2 as published by the Free Software
+# Foundation.
+# (https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+#
+# This program is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied
+# warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+# PURPOSE.
+#-----------------------------------------------------------
 
 t_module_name = "t_inspect_dataset"
-t_version = "2016-12-22"
+t_version = "2017-01-10"
 t_status = "released"
 
 cat(
-  paste0("\n",
-         t_module_name, " (Version: ", t_version, ", Status: ", t_status, ")", "\n", "\n",
-         "Copyright (C) Georg Maubach 2016
+  paste0(
+    "\n",
+    t_module_name,
+    " (Version: ",
+    t_version,
+    ", Status: ",
+    t_status,
+    ")",
+    "\n\n",
+    "This software comes with ABSOLUTELY NO WARRANTY.",
+    "\n\n"
+  )
+)
 
-This software comes with ABSOLUTELY NO WARRANTY.", "\n", "\n"))
-
-# If do_test is not defined globally define it here locally by un-commenting it
-# Switch t_do_test to TRUE to run test
+# If do_test is not defined globally define it here locally
+# by un-commenting it. Switch t_do_test to TRUE to run test.
 t_do_test <- FALSE
 
-# [ Function Defintion ]--------------------------------------------------------
-t_inspect_dataset <- function(dataset) {
-  # Inspects a dataset and gives basic information about its contents.
-  #
-  # Args:
-  #  dataset
-  #    Data frame object.
-  #
-  # Operation:
-  #   Performs checks on datasets.
-  #
-  # Returns:
-  #   Nothing.
-  #
-  # Error handling:
-  #   None.
-  #
-  # Credits:
-  #   Chapman, Chris: R for Marketing Research and Analytics,
-  #   Heidelberg: Springer, 2015, p. 59
-  #   (3.3.3 Recommended approach to inspecting data)
-  #-----------------------------------------------------------------------------
+#-----------------------------------------------------------
+t_inspect_dataset <- function
+(
+  dataset,
+  file = "Dataset_Inspection.txt",
+  show = TRUE
+)
+#-----------------------------------------------------------
+#' @title t_inspect_dataset()
+#'
+#' @description
+#' \code{function_name} inspects a dataset and gives basic
+#'  information about its contents
+#'
+#' @usage
+#'   t_inspect_dataset(
+#'     dataset,
+#'     file = "filename",
+#'     show = TRUE)
+#'
+#' @param dataset (data.frame, data.table)
+#'   Dataset object.
+#'  @param file (string)
+#'    Filename to dump the inspection results to.
+#'  @param show (logical)
+#'    Print result file to screen.
+#'
+#' @details
+#'   @section Operation
+#'   Performs checks on datasets. The result is written to
+#'   the output window AND to a file named in the "file"
+#'   argument. This is necessary cause the generated text
+#'   can not be fully read after operation in the output
+#'   window.
+#'   If a filename with ending, e. g. ".txt" is provided an
+#'   external viewer is called. If the ending is omitted and
+#'   the R internal viewer is called.
+#'   @section Error Handling
+#'   None.
+#'   @section Side Effects
+#'   This function uses sink(type = "output"). If
+#'   sink(type = "output") is used before this might cause
+#'   problems. See ?sink for more information.
+#'
+#' @return Nothing.
+#'
+#' @examples
+#'   See test for this function later in this module.
+#'
+#' @concept data preparation exploration quality control
+#'
+#' @author Georg Maubach
+#'
+#' @source
+#' Chapman, Chris: R for Marketing Research and Analytics,
+#'   Heidelberg: Springer, 2015, p. 59
+#'   (3.3.3 Recommended approach to inspecting data)
+#-----------------------------------------------------------
+{
+  function_name <- "t_inspect_dataset()"
+  cat(paste(function_name, "...\n"))  # indicate start
+  #---------------------------------------------------------
 
   t_find_duplicates_in_variable <- function(variable)
   {
@@ -67,10 +122,13 @@ t_inspect_dataset <- function(dataset) {
     invisible(v_list)
   }
 
-
-  cat("---------- [ t_inspect_dataset() ] ----------\n\n")
   library(car)
   library(Hmisc)
+
+  sink(
+    file = file,
+    type = "output",
+    split = TRUE)
 
   cat('--- [ Check if superfluous header lines were loaded (head) ] ---\n\n')
   print(head(dataset))
@@ -105,10 +163,29 @@ t_inspect_dataset <- function(dataset) {
   d_duplicates <- cbind(v_list, d_duplicates)
   print(d_duplicates)
 
-  cat("---------- [ Done ] ----------\n\n")
-}
+  cat("---------- [ End of file ] ----------\n\n")
 
-# [ Test Defintion ]------------------------------------------------------------
+  sink(type = "output")
+
+  if (show == TRUE)
+  {
+    file.show(file,
+              header = paste0("Inspection Result: ", file),
+              delete.file = FALSE)
+
+    # %ToDo%
+    # Here I would like to have the name of the dataset
+    # handed over to the function, e. g. dataset = iris then
+    # I would like to print "Inspection Result: iris".
+    # Is there a way to achieve this?
+  }
+
+  #---------------------------------------------------------
+  cat(paste("...", function_name, "\n"))  # indicate end
+}
+#-----------------------------------------------------------
+
+# [ Test Defintion ]----------------------------------------
 t_test <- function(do_test = FALSE) {
   if (do_test == TRUE) {
 
@@ -123,15 +200,24 @@ t_test <- function(do_test = FALSE) {
 
     # Call function
     t_inspect_dataset(dataset = d_data1)
-    t_inspect_dataset(dataset = d_data2)
+    t_inspect_dataset(
+      dataset = d_data2,
+      file = "Dataset_Inspection")  # without ending
+    t_inspect_dataset(
+      dataset = d_data2,
+      file = "Dataset_Inspection.txt")  # with ending
   }
 }
 
-# [ Test Run ]------------------------------------------------------------------
+# [ Test Run ]----------------------------------------------
 t_test(do_test = t_do_test)
 
-# [ Clean up ]------------------------------------------------------------------
-rm("t_module_name", "t_version", "t_status", "t_do_test", "t_test")
+# [ Clean up ]----------------------------------------------
+rm("t_module_name",
+   "t_version",
+   "t_status",
+   "t_do_test",
+   "t_test")
 
-# EOF
+# EOF .
 

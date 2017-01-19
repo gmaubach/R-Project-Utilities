@@ -19,8 +19,8 @@
 # PURPOSE.
 #-----------------------------------------------------------
 
-t_module_name = "t_select_chunks.R"
-t_version = "2016-11-30"
+t_module_name = "t_delete_empty_variables.R"
+t_version = "2017-01-10"
 t_status = "released"
 
 cat(
@@ -43,73 +43,68 @@ cat(
 t_do_test <- FALSE
 
 #-----------------------------------------------------------
-my_function <- function
+t_delete_empty_variables <- function
 (
-  argument_1 = "some_value",
-  argument_2 = "another_value"
+  dataset
 )
 #-----------------------------------------------------------
-#' @title
+#' @title t_delete_empty_variables()
 #'
 #' @description
-#' \code{function_name} describe what the function does
+#' \code{function_name} deletes variables with all NA from
+#' dataset.
 #'
 #' @usage
-#'   describe how the function should be called
+#'   t_delete_empty_variables(dataset = iris)
 #'
-#' @param param_name (type of the parameter)
-#'   Describe what the parameter does,
-#'   start with capital letter and end with fullstop,
-#'   all parameters must be documented.
+#' @param dataset (data frame, data table)
+#'   A dataset.
 #'
 #' @details
-#'   provide important information of how the function
-#'   operates
-#'   @section Section title is only on line long:
-#'   Put the paragraph of the details in this section.
-#'   The section title must be followed by a ":" (colon).
-#'   @section Operation
-#'   Describe operation.
-#'   @section Error Handling
-#'   Describe error handling
-#'   @section Side Effects
-#'   Describe any side effects.
-#'   @section Warning
-#'   When calling this function make sure that ...
-#'   @section Annotations
+#'   Function checks if all cases are missing for a
+#'   variable. If so, the variable is deleted from the
+#'   dataset.
 #'
-#' @return describes the output of a function
+#' @return Returns the given dataset without the variables
+#' which were discovered as empty.
 #'
 #' @examples
-#'   provide executable R code showing how to use the
-#'   function in practice
+#'   See test.
 #'
 #' @include filename.R to be loaded before this function
 #'
-#' @family  add appropriate lists/interlinks to seealso
-#' @seealso point to other useful resources
-#' @aliases add additional aliases through which the user
-#'   can find the documentation with "?"
-#' @concept add extra keywords that will be found with
-#'   help.search()
-#' @keywords keyword1 keyword2 ...
-#'   to add standardised optional keywords which must be
-#'   taken from the predefined list replicated in the
-#'   keywords vignette
-#'
 #' @author Georg Maubach
-#'
-#' @source give credits to those you provided code
 #-----------------------------------------------------------
 {
-  function_name <- "function_name_here"
-  cat(paste(function_name, " ...\n"))  # indicate start
+  function_name <- "t_delete_empty_variables()"
+  cat(paste(function_name, "...\n"))  # indicate start
   #---------------------------------------------------------
 
-  # Function body
+  n_cases <- nrow(dataset)
+
+  deleted_variables <- c()
+
+  for (variable in names(dataset))
+  {
+    n_miss <- sum(is.na(dataset[[variable]]))
+    if (n_cases == n_miss)  # all missing
+    {
+      dataset[[variable]] <- NULL
+      deleted_variables <- c(deleted_variables, variable)
+    }
+  }
+
+  cat(
+    paste0(
+      "Deleted ",
+      length(deleted_variables),
+      " empty variables.\n"))
+  print(deleted_variables)
 
   #---------------------------------------------------------
   cat(paste("...", function_name, "\n"))  # indicate end
+
+  return(dataset)
 }
 #-----------------------------------------------------------
 

@@ -30,5 +30,11 @@ was added to check if the list of old variable names matches the list of new var
 (5)
 The function t_select_variables_by_name() was added.
 
+(6)
+"t_find_originals_and_duplicates()" was changed. A logical vector is returned instead of the complete dataset provided in the argument "dataset".
+
+(7)
+"t_toolbox.R" sources the functions to the environment "toolbox" instead of ".GlobalEnv". The functions are attached to the ".GlobalEnv".
+
 ./.
 

@@ -1,0 +1,320 @@
+--- [ Check if superfluous header lines were loaded (head) ] ---
+
+  Debitor                    Kundenname          Ort
+1 1000048       Anton Hammes Weinbau u.        Alken
+2 1000049 Heinz Steinmeier Süssmosterei       Kiesby
+3 1000050         mcc-Shop GmbH & Co.KG     Coesfeld
+4 1000051   Kölner Hof Hotel Restaurant       Dernau
+5 1000052    Mattini's Cafe Bar Enoteca    Metzingen
+6 1000053                 Ursel Peineke Braunschweig
+  Auftragssperre_Z Auftragssperre_V Liefersperre_Z
+1             <NA>             <NA>           <NA>
+2             <NA>             <NA>           <NA>
+3               01             <NA>             ZV
+4             <NA>             <NA>           <NA>
+5               02             <NA>           <NA>
+6             <NA>             <NA>           <NA>
+  Liefersperre_V Kontengruppe Branche Angelegt_am
+1           <NA>         Z101     411  21.05.2012
+2           <NA>         Z101     231  21.05.2012
+3           <NA>         Z101     231  21.05.2012
+4           <NA>         Z101     151  21.05.2012
+5           <NA>         Z107     111  21.05.2012
+6           <NA>         Z101     421  22.05.2012
+  Verkaufsorganisation Vertriebsweg Handelsvertreter_Nr
+1                   99           40             H000017
+2                   99           20             H000218
+3                   99           20             H000033
+4                   99           10             H000017
+5                   99           10                <NA>
+6                   99           40             H000940
+
+
+--- [ Check for additional blank lines at the end (tail) ] ---
+
+      Debitor             Kundenname
+42441  994072         Dr. Jan Hunger
+42442  994216         Sirko Strehler
+42443  994255         Elsässer Stubb
+42444  995030 Weingut Andreas Laible
+42445  995037  Weingut Bickel-Stumpf
+42446  995049          Michael Trenz
+                            Ort Auftragssperre_Z
+42441                  Würzburg             <NA>
+42442               Taunusstein             <NA>
+42443                    Siegen             <NA>
+42444                   Durbach             <NA>
+42445             Frickenhausen             <NA>
+42446 Geisenheim - Johannisberg             <NA>
+      Auftragssperre_V Liefersperre_Z Liefersperre_V
+42441             <NA>           <NA>           <NA>
+42442             <NA>           <NA>           <NA>
+42443             <NA>             03             01
+42444             <NA>           <NA>           <NA>
+42445             <NA>             06           <NA>
+42446             <NA>           <NA>           <NA>
+      Kontengruppe Branche Angelegt_am
+42441         Z101     421  05.03.2012
+42442         Z101     421  05.03.2012
+42443         Z101     151  05.03.2012
+42444         Z101     151  05.03.2012
+42445         Z101     411  05.03.2012
+42446         Z101     151  05.03.2012
+      Verkaufsorganisation Vertriebsweg
+42441                   99           40
+42442                   99           40
+42443                   99           10
+42444                   99           10
+42445                   99           40
+42446                   99           10
+      Handelsvertreter_Nr
+42441             H000940
+42442             H000940
+42443             H000135
+42444             H000071
+42445             H000940
+42446             H000055
+
+
+--- [ Check a set of randomly selected rows (some) ] ---
+
+      Debitor                       Kundenname
+659   1000907 IHK Gesellschaft für Berufs- und
+1803  1002297                      Lindenstube
+8459    19451                            Käfer
+11683  900318                          Korrekt
+12968  904766                      Knusperhaus
+18797  918217       Prof. Michaela Hellerforth
+32034  975809                   Günther Sproll
+39168  984510                       Amalienhof
+40447  985905                 NH Hotel München
+41502  987153             Admiral Music Lounge
+                            Ort Auftragssperre_Z
+659                     München             <NA>
+1803                       Unna             <NA>
+8459                  Winnenden             <NA>
+11683                      Bonn             <NA>
+12968 Schmallenberg-Oberkirchen             <NA>
+18797               Lüdenscheid             <NA>
+32034                  Biberach             <NA>
+39168                    Weimar             <NA>
+40447                   München             <NA>
+41502                    Gießen             <NA>
+      Auftragssperre_V Liefersperre_Z Liefersperre_V
+659               <NA>           <NA>           <NA>
+1803              <NA>             03           <NA>
+8459                02           <NA>           <NA>
+11683             <NA>           <NA>           <NA>
+12968             <NA>           <NA>             03
+18797             <NA>           <NA>             03
+32034             <NA>           <NA>             03
+39168             <NA>           <NA>             03
+40447             <NA>           <NA>             03
+41502             <NA>           <NA>           <NA>
+      Kontengruppe Branche Angelegt_am
+659           Z101     411  24.09.2012
+1803          Z101     151  27.03.2013
+8459          Z101     231  02.03.2012
+11683         Z101     151  02.03.2012
+12968         Z101     151  02.03.2012
+18797         Z101     421  02.03.2012
+32034         Z101     421  02.03.2012
+39168         Z107     131  02.03.2012
+40447         Z107     133  02.03.2012
+41502         Z101     151  02.03.2012
+      Verkaufsorganisation Vertriebsweg
+659                     99           40
+1803                    99           10
+8459                    99           20
+11683                   99           10
+12968                   99           10
+18797                   99           40
+32034                   99           40
+39168                   99           10
+40447                   99           10
+41502                   99           10
+      Handelsvertreter_Nr
+659               H000050
+1803              H000033
+8459              H000170
+11683             H000017
+12968             H000135
+18797             H000702
+32034             H000702
+39168                <NA>
+40447                <NA>
+41502             H000135
+
+
+--- [ First glance of the data (summary) ] ---
+
+   Debitor           Kundenname       
+ Length:42446       Length:42446      
+ Class :character   Class :character  
+ Mode  :character   Mode  :character  
+                                      
+                                      
+                                      
+                                      
+     Ort            Auftragssperre_Z  
+ Length:42446       Length:42446      
+ Class :character   Class :character  
+ Mode  :character   Mode  :character  
+                                      
+                                      
+                                      
+                                      
+ Auftragssperre_V   Liefersperre_Z    
+ Length:42446       Length:42446      
+ Class :character   Class :character  
+ Mode  :character   Mode  :character  
+                                      
+                                      
+                                      
+                                      
+ Liefersperre_V     Kontengruppe          Branche     
+ Length:42446       Length:42446       Min.   :111.0  
+ Class :character   Class :character   1st Qu.:151.0  
+ Mode  :character   Mode  :character   Median :151.0  
+                                       Mean   :231.6  
+                                       3rd Qu.:411.0  
+                                       Max.   :421.0  
+                                       NA's   :5      
+ Angelegt_am        Verkaufsorganisation  Vertriebsweg  
+ Length:42446       Min.   :99           Min.   :10.00  
+ Class :character   1st Qu.:99           1st Qu.:10.00  
+ Mode  :character   Median :99           Median :10.00  
+                    Mean   :99           Mean   :20.17  
+                    3rd Qu.:99           3rd Qu.:40.00  
+                    Max.   :99           Max.   :40.00  
+                                                        
+ Handelsvertreter_Nr
+ Length:42446       
+ Class :character   
+ Mode  :character   
+                    
+                    
+                    
+                    
+
+
+--- [ Data Overview (describe) ] ---
+
+dataset 
+
+ 13  Variables      42446  Observations
+---------------------------------------------------------
+Debitor 
+      n missing  unique 
+  42446       0   42446 
+
+lowest : 1000048 1000049 1000050 1000051 1000052
+highest: 994216  994255  995030  995037  995049  
+---------------------------------------------------------
+Kundenname 
+      n missing  unique 
+  42446       0   38597 
+
+lowest : "Clubhaus" Gastronomie WGC          "Da Patrizia" Italienische Speziali "Die Genusswelt"                    "Klopotowskis"                      "KÖNIG" Event Gastronomie GmbH     
+highest: Zwickel & Kaps                      Zwingel Nord GmbH                   Zwirner's Restaurant                Zwutschkerl Alm                     Zyrafina Mehmeti                    
+---------------------------------------------------------
+Ort 
+      n missing  unique 
+  42446       0    6981 
+
+lowest : .                  3604 Irvine CA.    Aachen             Aachen- Walheim    Aachen-Burtscheid 
+highest: Zwiesel            Zwiesel-Rabenstein Zwieslerwaldhaus   Zwingenberg        Zwönitz            
+---------------------------------------------------------
+Auftragssperre_Z 
+      n missing  unique 
+   3221   39225       5 
+
+           01   02 03  05  08
+Frequency 382 1903 70 105 761
+%          12   59  2   3  24
+---------------------------------------------------------
+Auftragssperre_V 
+      n missing  unique 
+   8633   33813       5 
+
+          01   02 03 05 08
+Frequency  6 8514  7 49 57
+%          0   99  0  1  1
+---------------------------------------------------------
+Liefersperre_Z 
+      n missing  unique 
+   7263   35183      12 
+
+            01  02   03  04 05  06 07 10 12 RL ZD  ZV
+Frequency 2092 606 2987 320 18 391  9 26 78  7  6 723
+%           29   8   41   4  0   5  0  0  1  0  0  10
+---------------------------------------------------------
+Liefersperre_V 
+      n missing  unique 
+  11614   30832      11 
+
+           01 02    03 04 05  06 07 10 12 ZD  ZV
+Frequency 737 95 10000  8  8 135  7  7  8  4 605
+%           6  1    86  0  0   1  0  0  0  0   5
+---------------------------------------------------------
+Kontengruppe 
+      n missing  unique 
+  42446       0       3 
+
+Z101 (38784, 91%), Z106 (402, 1%) 
+Z107 (3260, 8%) 
+---------------------------------------------------------
+Branche 
+      n missing  unique    Info    Mean     .05     .10 
+  42441       5      22    0.97   231.6     111     111 
+    .25     .50     .75     .90     .95 
+    151     151     411     421     421 
+
+lowest : 111 121 122 131 132
+highest: 244 251 281 411 421 
+---------------------------------------------------------
+Angelegt_am 
+      n missing  unique 
+  42446       0    1142 
+
+lowest : 01.02.2013 01.02.2016 01.03.2013 01.03.2016 01.04.2014
+highest: 31.08.2016 31.10.2012 31.10.2013 31.10.2014 31.10.2016 
+---------------------------------------------------------
+Verkaufsorganisation 
+      n missing  unique    Info    Mean 
+  42446       0       1       0      99 
+---------------------------------------------------------
+Vertriebsweg 
+      n missing  unique    Info    Mean 
+  42446       0       3    0.83   20.17 
+
+10 (21955, 52%), 20 (9162, 22%) 
+40 (11329, 27%) 
+---------------------------------------------------------
+Handelsvertreter_Nr 
+      n missing  unique 
+  38774    3672      87 
+
+lowest : H000001 H000002 H000005 H000006 H000011
+highest: H000813 H000814 H000815 H000900 H000940 
+---------------------------------------------------------
+
+
+--- [ Duplicate cases ] ---
+
+              Variables Values Unique Duplicates   NAs
+1               Debitor  42446  42446          0     0
+2            Kundenname  42446  38597       3849     0
+3                   Ort  42446   6981      35465     0
+4      Auftragssperre_Z   3221      5       3216 39225
+5      Auftragssperre_V   8633      5       8628 33813
+6        Liefersperre_Z   7263     12       7251 35183
+7        Liefersperre_V  11614     11      11603 30832
+8          Kontengruppe  42446      3      42443     0
+9               Branche  42441     22      42419     5
+10          Angelegt_am  42446   1142      41304     0
+11 Verkaufsorganisation  42446      1      42445     0
+12         Vertriebsweg  42446      3      42443     0
+13  Handelsvertreter_Nr  38774     87      38687  3672
+---------- [ End of file ] ----------
+
