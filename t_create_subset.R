@@ -10,7 +10,7 @@
 # Custom-build function. Distribution prohibited!
 #-----------------------------------------------------------
 
-cat("\nDefining f_create_subset() ...\n")
+cat("\nDefining t_create_subset() ...\n")
 
 #-----------------------------------------------------------
 t_create_subset <- function
@@ -51,9 +51,9 @@ t_create_subset <- function
   # Check if parameters given
   if (!is.na(group_variable) & !is.na(group)) {
     cat(paste0(
-      "\nUsing variable '", group_variable,
+      "Using '", group_variable,
       "' with entry '", group,
-      "' to create sub group!\n"
+      "' for sub group!\n"
       )
     )
 
@@ -70,20 +70,22 @@ t_create_subset <- function
 
     cat(paste0(
       check,
-      " unique value(s) in group variable '",
+      " unique value(s) in variable '",
       group_variable,
-      "' (should be 1).\n")
+      "' (should be 1). ")
     )
 
     cat(paste0("Check ",
       check_result,
-      "!\n\n"
+      "!\n"
       )
     )
   } else {
     cat("\n\nDoing analysis on the whole dataset!\n\n")
     subset <- dataset
   }
+
+  cat(paste(nrow(subset), " cases selected!\n"))
 
   #---------------------------------------------------------
   cat(paste("...", function_name, "\n"))

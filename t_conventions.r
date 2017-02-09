@@ -2,7 +2,7 @@
 # Module        : Conventions
 # Author        : Georg Maubach
 # Date          : 2016-06-07
-# Update        : 2016-12-22
+# Update        : 2017-02-02
 # Description   : Conventions in scripts
 # Source System : R 3.3.0 (64 Bit)
 # Target System : R 3.3.0 (64 Bit)
@@ -93,11 +93,46 @@
 #  - keep the environment tab of R Studio neat and clean
 # c = constants
 # d = datasets
+# f = user-defined, project-specific functions
 # m = meta data, master data
 # p = procedure
 # s = customer specific code (confidential, copyright reserved)
 # t = toolbox objects, e. g. functions
 # v = variables
+
+# @GMA (2017-02-02)
+# Development and Debugging
+signal <- new.env(parent = .GlobalEnv)
+
+# Signal to control the execution of functions and code
+# sourcing, e .g.
+# source(
+#   file = file.path(
+#     c_path_full$clean,
+#     "320_Clean_sales_agency.R"),
+#   echo = signal$SIGTRC)
+signal$SIGTRC <- FALSE # Signal for tracing (True, False)
+
+# Signal to be used in in functions whose execution shall be
+# executed only if a debugging of routines is necessary.
+signal$SIGDBG <- FALSE # Signal for debugging (True, False)
+
+# signal to define code chunks that are only needed for
+# quality assurance during program development. These code
+# chunks can be shut off by this signal.
+signal$SIGCHK <- FALSE # Signal for checking (True, False)
+
+# Signal to reduce the cases in the data set to the number
+# defined in signal SIGNOC.
+signal$SIGNOC <- 0 # Signal for case reduction (>0=ON, 0=OFF)
+
+# @GMA (2017-02-02)
+# Missing Values
+missing <- new.env(parent = .GlobalEnv)
+missing$DONT_KNOW <- -996 # Dont Know Value
+missing$NO_ANSWER <- -997 # No Answer Value
+missing$FILTER    <- -998 # Filter Missing Value
+missing$USER_MIS  <- -999 # (General) User Missing Value
 
 # @GMA (2016-09-01)
 # Environment
@@ -166,6 +201,8 @@
 # c_*              : Prefix for constant values,
 #                    e.g. separator for values and value
 #                    labels
+# f_*              : Prefix for user-defined, project-
+#                    specific functions
 # m_*              : Prefix for dataset objects containing
 #                    (M)eta data, e. g. branch codes
 # v_*              : Prefix for variables

@@ -47,7 +47,7 @@ t_inspect_dataset <- function
 (
   dataset,
   file = "Dataset_Inspection.txt",
-  show = TRUE
+  show = FALSE
 )
 #-----------------------------------------------------------
 #' @title t_inspect_dataset()
