@@ -1,3 +1,4 @@
+#!/usr/bin/Rscript –vanilla
 #-----------------------------------------------------------
 # Project     : <Project Name>
 # Organisation: Wein Wolf Import GmbH & Co. Verwaltungs KG

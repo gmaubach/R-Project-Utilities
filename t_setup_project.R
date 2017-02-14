@@ -2,7 +2,7 @@
 # Module        : t_setup_project.R
 # Author        : Georg Maubach
 # Date          : 2016-10-19
-# Update        : 2016-12-21
+# Update        : 2017-02-13
 # Description   : Setup a directory structure for a new analytics
 #                 project
 # Source System : R 3.3.0 (64 Bit)
@@ -105,6 +105,7 @@ t_setup_project <- function() {
   tables        <- "results/tables"
   web           <- "results/web"      # web site pages
   temp          <- "temp"
+  templates     <- "templates"
 
   c_project_dir <- c_path_relative$project
 
@@ -133,7 +134,8 @@ t_setup_project <- function() {
     slides        = slides,
     tables        = tables,
     web           = web,
-    temp          = temp
+    temp          = temp,
+    templates     = templates
   )
 
   c_path_full     <- list(
@@ -161,7 +163,8 @@ t_setup_project <- function() {
     paper         = file.path(c_project_dir, paper),
     slides        = file.path(c_project_dir, slides),
     web           = file.path(c_project_dir, web),
-    temp          = file.path(c_project_dir, temp)
+    temp          = file.path(c_project_dir, temp),
+    templates     = file.path(c_project_dir, templates)
     )
 
   # Create sub directories if they are not there
