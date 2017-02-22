@@ -112,7 +112,10 @@ t_rename_variables_2 <- function
 
   stopifnot(identical(length(old_names), length(new_names)))
 
-  if (inherits(old_names, "character"))
+  if (inherits(old_names, "list"))
+  {
+    # skip
+  } else if (inherits(old_names, "character"))
   {
     old_names <- as.list(old_names)
   } else
@@ -121,7 +124,10 @@ t_rename_variables_2 <- function
          "'character' or 'list'!")
   }
 
-  if (inherits(new_names, "character"))
+  if (inherits(new_names, "list"))
+  {
+    # skip
+  } else if (inherits(new_names, "character"))
   {
     new_names <- as.list(new_names)
   } else
