@@ -1,0 +1,30 @@
+Package: rToolbox
+Title: Package with Tools and Utitities to Ease the Work with R
+Version: 0.0.0.9000
+Date: 2017-02-22
+Authors@R: c(
+   person(given = "Georg",
+          family = "Maubach", 
+          email = "gmaubach@users.noreply.github.com", 
+          role = c("cre", "aut")),
+Depends: R (>= 3.3.2)
+Suggests:
+    dplyr (>= 0.5.0)
+    openxlsx (>= 3.0.0),
+    knitr,
+    rmarkdown
+Description: This pacakge contains function that ease the use of
+    R. It (1) wraps R standards functionality into single
+    functions to enhance productivity, (2) adds new functionality
+    not already included in other R functions or packages.
+    Importantly, this packages relies heavily on base R.
+    The creators tried to avoid dependencies to other packages as
+    much as possible.
+License: GPL-3 (General Public License, Version 3.0)
+URL: http://github.com/gmaubach
+BugReports: http://github.com/gmaubach
+YEARS: 2017
+Encoding: UTF-8
+LazyData: true
+Comment: To be done.
+VignetteBuilder: knitr
