@@ -1,0 +1,2 @@
+# Avoid using demos, use vignettes with R Markdown and included R code instead.
+Demo-Name Demo-Description  # demo-name = file name of demo w/o extension

@@ -7,12 +7,16 @@ Authors@R: c(
           family = "Maubach", 
           email = "gmaubach@users.noreply.github.com", 
           role = c("cre", "aut")),
-Depends: R (>= 3.3.2)
-Suggests:
+Imports:
     dplyr (>= 0.5.0)
     openxlsx (>= 3.0.0),
+Depends: R (>= 3.3.2)
+Suggests:
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
+SystemRequirements:
+    Name if any.
 Description: This pacakge contains function that ease the use of
     R. It (1) wraps R standards functionality into single
     functions to enhance productivity, (2) adds new functionality
@@ -26,5 +30,5 @@ BugReports: http://github.com/gmaubach
 YEARS: 2017
 Encoding: UTF-8
 LazyData: true
-Comment: To be done.
 VignetteBuilder: knitr
+Comment: To be done.
