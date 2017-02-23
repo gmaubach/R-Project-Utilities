@@ -1,5 +1,5 @@
 Package: rToolbox
-Title: Package with Tools and Utitities to Ease the Work with R
+Title: Package With Tools And Utitities To Ease The Work With R
 Version: 0.0.0.9000
 Date: 2017-02-22
 Authors@R: c(
@@ -26,7 +26,7 @@ Description: This pacakge contains function that ease the use of
     much as possible.
 License: GPL-3 (General Public License, Version 3.0)
 URL: http://github.com/gmaubach
-BugReports: http://github.com/gmaubach
+BugReports: http://github.com/gmaubach/<projectname>/issues
 YEARS: 2017
 Encoding: UTF-8
 LazyData: true
