@@ -63,8 +63,9 @@ t_rename_variables_2 <- function
 #'
 #' @details
 #'   @section Operation:
-#'   The variable list is intended to be a super set of the
-#'   variable list in old_names.
+#'   The variable list in var_names is intended to be a
+#'   super set of the variable list in old_names and
+#'   new_names.
 #'
 #'   All variables in var_names having a corresponding
 #'   old variable name in old_names will be replaced with
@@ -104,6 +105,8 @@ t_rename_variables_2 <- function
 #'
 #' @credits Zumel: Practical Data Science with R,
 #'          Shelter Island (NY): Manning, 2014, p. 23
+#'
+#' @export
 #-----------------------------------------------------------
 {
   function_name <- "t_rename_variables_2()"
@@ -112,25 +115,19 @@ t_rename_variables_2 <- function
 
   stopifnot(identical(length(old_names), length(new_names)))
 
-  if (inherits(old_names, "list"))
-  {
-    # skip
-  } else if (inherits(old_names, "character"))
+  if (inherits(old_names, "character"))
   {
     old_names <- as.list(old_names)
-  } else
+  } else if (!inherits(old_names, "list"))
   {
     stop("Argument 'old_names' must be of class ",
          "'character' or 'list'!")
   }
 
-  if (inherits(new_names, "list"))
-  {
-    # skip
-  } else if (inherits(new_names, "character"))
+  if (inherits(new_names, "character"))
   {
     new_names <- as.list(new_names)
-  } else
+  } else if (!inherits(new_names, "list"))
   {
     stop("Argument 'new_names' must be of class ",
          "'character' or 'list'!")
@@ -203,6 +200,20 @@ t_test <- function(do_test = FALSE) {
       names(ds),
       c("var2", "var4"),
       c("changed2", "changed4"))
+    print(ds1)
+
+    print("Provide variable names as 'list' ... ")
+    names(ds1) <- t_rename_variables_2(
+      names(ds),
+      list("var1"),
+      list("changed1"))
+    print(ds1)
+
+    print("Provide variable names as 'matrix' ... ")
+    names(ds1) <- t_rename_variables_2(
+      names(ds),
+      matrix("var1"),
+      matrix("changed1"))
     print(ds1)
   }
 }

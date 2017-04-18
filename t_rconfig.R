@@ -37,6 +37,9 @@ options(
   papersize="a4"
   )
 
+# tibble Options
+options(tibble.print_min = 10, tibble.print_max = 50)
+
 # Reproducible Research
 set.seed(123456789)
 
