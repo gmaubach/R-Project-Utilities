@@ -1,0 +1,128 @@
+Project
+=======
+
+# Sources
+
+- Gandrud, Christopher: Reproducible Research with R and RStudio
+- Project Management with RStudio (https://swcarpentry.github.io/r-novice-gapminder/02-project-intro/)
+- Wilson: Good Enough Practices for Scientific Computing (https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf)
+- CRAM Package "ProjectTemplate"
+- Chapman, et. al.: CRISP-DM 1.0, Step-by-step data mining guide (https://www.the-modeling-agency.com/crisp-dm.pdf)
+- IBM SPSS Modeler CRISP-DM Guide (ftp://public.dhe.ibm.com/software/analytics/spss/documentation/modeler/14.2/en/CRISP_DM.pdf)
+
+# Principles
+- There are only two classes of files: data and programs.
+- Separate static files from files that change permanently.
+- Separate files under version control from those which are not under version control.
+- Design a project structure suitable for market research projects as well as data mining projects.
+
+# Files
+
+- CITATION
+- CONTRIBUTING
+- LICENSE
+- README.Rmd
+- requirements.txt
+- issues.txt
+- communication.txt
+- styleguide.txt
+- CHANGELOG (e.g. daily entries or reference to version control)
+- .gitignore (contains e.g. /bin, /data, /external, /temp)
+
+# Directories
+
+- fundamentals (all materials brought to start the project)
+- documentation (manuscripts, documentation of source code, electronic lab notebook)
+- permissions (credentials, passwords, private keys)
+- data (fix)
+  - raw (never changed, for reference, including SHA hashes)
+  - input (data prepared for import)
+  - metadata
+- src (interpreted scripts)
+  - configure (IDE setup, project config, load libraries)
+  - declare (general definitions for other core sources)
+  - core
+    - collect (used to collect raw data)
+    - import (imports input into analysis platform)
+    - explore (exploratory data analysis)
+    - clean
+    - integrate (combine and merge data)
+    - prepare (create new variables and cases)
+    - analyse (create permanent results)
+    - model
+    - present
+  - make (build scripts, controllers, make files)
+  - sub (all what's not worth to be put in a library)
+    - functions (single, atomic sub routines)
+    - modules (complex, pooling sub routines)
+  - lib (all used libraries, internal and external)
+- bin (binary programs)
+- external (binaries, libraries, packages, etc. from outside)
+- results (permanent results)
+  - plots
+  - papers
+  - tables
+  - slides
+  - web
+  - reports (e. g. according to CRISP-DM)
+    # 001_Data_Mining_Report.Rmd
+    # 100_Business_Understanding.Rmd
+    # 110_Business_Objectives.Rmd
+    - 111_Background.Rmd
+    - 112_Business_Objectives.Rmd
+    - 113_Business_Success_Criteria.Rmd
+    # 120_Assess_Situation.Rmd
+    - 121_Ressource_Inventory.Rmd
+    - 122_Requirements_Assumptions_Constraints.Rmd
+    - 123_Risks.Rmd
+    # 130_Determine_Data_Mining_Goals.Rmd
+    - 131_Data_Mining_Goals.Rmd
+    - 132_Data_Mining_Success_Criteria.Rmd
+    # 140_Project_Planning.Rmd
+    - 141_Project_Plan.Rmd
+    - 142_Tools_and_Techniques_Assessment.Rmd
+    # 200_Data_Understanding.Rmd
+    - 210_Initial_Data_Collection_Report.Rmd (uses /src/core/collect)
+    - 220_Data_Description_Report.Rmd
+    - 230_Data_Exploration_Report.Rmd
+    - 240_Data_Quality_Report.Rmd
+    # 300_Data_Preparation.Rmd (uses /scr/core/prepare)
+    - 310_Select_Data.Rmd
+    - 320_Data_Cleaning_Report.Rmd (uses /src/core/clean)
+    - 330_Derived_Attributes.Rmd
+    - 340_Generated_Records.Rmd
+    - 350_Integrate.Rmd (uses /src/core/integrate)
+    - 360_Reformat.Rmd
+    # 400_Modeling.Rmd (uses /src/core/model)
+    - 411_Modeling_Technique.Rmd
+    - 412_Modeling_Assumptions.Rmd
+    - 421_Test_Design.Rmd
+    - 431_Parameter_Settings.Rmd
+    - 432_Models.Rmd
+    - 433_Model_Descriptions.Rmd
+    - 434_Model_Assessment.Rmd
+    - 435_Revised_Model_Parameter_Settings.Rmd
+    # 500_Evaluation.Rmd
+    - 511_Business_Assessment.Rmd
+    - 512_Approved_Models.Rmd
+    - 521_Process_Review_Report.Rmd
+    - 531_Action_List.Rmd
+    - 532_Decisions.Rmd    
+  - export (to other projects, interface to other programs, API's)
+- temp (temporary files)
+  - src (automatically created scripts)
+  - data
+  - results
+- templates
+- tests
+- profiling
+- logs (program logs, sessionInfo output)
+
+# Version Control
+
+all files and directories without
+  - temp
+  - bin (possibly)
+  - external (possibly)
+  - data (possibly)
+

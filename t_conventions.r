@@ -207,8 +207,15 @@ missing$USER_MIS  <- -999 # (General) User Missing Value
 #                    (M)eta data, e. g. branch codes
 # v_*              : Prefix for variables
 
-# @GMA (2016-12-07)
-# Objects
+# @GMA (2017-05-04)
+# Datasets:
+# d_raw              : Raw dataset
+# d_cleaned          : Cleaned dataset
+# d_prepared         : Prepared dataset
+# d_analysed         : Analyse dataset
+# d_merged           : Merge dataset
+#
+# Variables:
 # v_key_variables    : character vector with variables to be
 #                      used to identify duplicates
 # v_duplicates       : logical vector to indicate if a case
@@ -226,7 +233,6 @@ missing$USER_MIS  <- -999 # (General) User Missing Value
 # v_retain           : cases to keep
 # v_discard          : cases to drop
 # v_sort_variables   : sorting for variables
-# @ GMA 2017-01-12
 # v_sort_cases       : sorting for cases
 
 # @GMA (2016-09-01)
