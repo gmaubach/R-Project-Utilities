@@ -99,7 +99,7 @@ t_setup_project <- function() {
                                       # be sourced or loaded
   results       <- "results"          # container for all resulting data
                                       # in an aggregated form
-  graphics      <- "results/graphics"
+  plots      <- "results/plots"
   paper         <- "results/paper"
   slides        <- "results/slides"   # slideshows = presentations
   tables        <- "results/tables"
@@ -129,7 +129,7 @@ t_setup_project <- function() {
     present       = present,
     modules       = modules,
     results       = results,
-    graphics      = graphics,
+    plots         = plots,
     paper         = paper,
     slides        = slides,
     tables        = tables,
@@ -158,7 +158,7 @@ t_setup_project <- function() {
     present       = file.path(c_project_dir, present),
     modules       = file.path(c_project_dir, modules),
     results       = file.path(c_project_dir, results),
-    graphic       = file.path(c_project_dir, graphics),
+    plots         = file.path(c_project_dir, plots),
     tables        = file.path(c_project_dir, tables),
     paper         = file.path(c_project_dir, paper),
     slides        = file.path(c_project_dir, slides),
