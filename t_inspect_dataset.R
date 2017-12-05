@@ -150,7 +150,7 @@ t_inspect_dataset <- function
   for (variable in colnames(dataset))
   {
     v_list <- t_find_duplicates_in_variable(
-      variable = dataset[, variable])
+      variable = dataset[[variable]])
     if (exists("d_duplicates"))
     {
       d_duplicates <- rbind(d_duplicates, v_list)
